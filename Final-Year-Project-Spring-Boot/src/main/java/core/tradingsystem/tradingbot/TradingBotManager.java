@@ -189,8 +189,7 @@ public class TradingBotManager{
 			// sleep
 			try {
 				Thread.sleep(200);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			} catch (Exception e) {
 			}
 		}
 	}
