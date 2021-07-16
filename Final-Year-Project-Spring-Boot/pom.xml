@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>Final-Year-Project-Spring-Boot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Final-Year-Project-Spring-Boot</name>
+	<description>Final Year Project 2021 180050734</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+	</dependency>
+		
+		
+				
+	<dependency>
+    <groupId>org.apache.tomcat.embed</groupId>
+    <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+</dependency>
+
+
+			<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+	
+	
+	<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <scope>test</scope>
+</dependency>
+	
+		
+		
+				<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+   
+		 <dependency>
+			 <groupId>com.fasterxml.jackson.core</groupId> 
+			 <artifactId>jackson-databind</artifactId>
+		  </dependency> 
+   
+   	  <dependency>
+		  <groupId>joda-time</groupId>
+		  <artifactId>joda-time</artifactId>
+		  <version>2.10.10</version>
+	  </dependency>
+    
+    <dependency>
+	    <groupId>commons-validator</groupId>
+	    <artifactId>commons-validator</artifactId>
+	    <version>1.6</version>
+	</dependency>
+   
+    <dependency>
+	    <groupId>javax.mail</groupId>
+	    <artifactId>mail</artifactId>
+	    <version>1.5.0-b01</version>
+	</dependency>
+   
+		    
+    <dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	</dependency>
+	
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		</dependency>
+		    
+		 <dependency>
+		    <groupId>jakarta.xml.bind</groupId>
+		    <artifactId>jakarta.xml.bind-api</artifactId>
+		</dependency>
+		
+		<!-- Runtime, com.sun.xml.bind module -->
+		<dependency>
+		    <groupId>org.glassfish.jaxb</groupId>
+		    <artifactId>jaxb-runtime</artifactId>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.fasterxml.uuid</groupId>
+		  <artifactId>java-uuid-generator</artifactId>
+		  <version>4.0</version>
+		</dependency>
+		
+		
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+		<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                    <testSource>8</testSource>
+                    <testTarget>8</testTarget>
+                    <showDeprecation>true</showDeprecation>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+		</plugins>
+	</build>
+
+</project>
