@@ -17,7 +17,7 @@ public class DataBaseConnect {
 	private EntityManagerFactory emf;
 	
 	public DataBaseConnect() {
-		emf = Persistence.createEntityManagerFactory("p1");
+		emf = Persistence.createEntityManagerFactory("p2");
 	}
 	
 	public boolean checkUsernameExists(String username) {

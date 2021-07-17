@@ -115,10 +115,7 @@ public class RegisterController {
 		String hashedPassword = PasswordHasher.get_SHA_512_SecurePassword(password);
 		User user = new User(username,hashedPassword,email);
 		dataBaseCon.addNewUser(user);
-		int UserID = dataBaseCon.getUser(username).getId();
 		httpSession.setAttribute("username", username);
-		httpSession.setAttribute("userID", UserID);
-		
 		return new ModelAndView("redirect:/home");
 	}
 	

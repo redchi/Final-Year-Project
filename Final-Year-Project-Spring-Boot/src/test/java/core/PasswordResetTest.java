@@ -77,7 +77,7 @@ public class PasswordResetTest {
 
 	}
 	@Test
-	public void sucessfullReset() throws Exception {
+	public void sucessfullResetTest() throws Exception {
 		ArgumentCaptor<String> arg = ArgumentCaptor.forClass(String.class);
 		// enter email
 		MvcResult res = mockMvc.perform(get("/ForgotPassword/SubmitEmail")
@@ -108,7 +108,7 @@ public class PasswordResetTest {
 	
 	
 	@Test
-	public void invalidEmail() throws Exception{
+	public void invalidEmailTest() throws Exception{
 		mockMvc.perform(get("/ForgotPassword/SubmitEmail")
 				.param("email", "asim128999@gmail.com"))
 				.andExpect(redirectedUrlPattern("/ForgotPassword*"))
@@ -116,7 +116,7 @@ public class PasswordResetTest {
 	}
 	
 	@Test
-	public void invalidCode() throws Exception {
+	public void invalidCodeTest() throws Exception {
 		spytokenHandler.createResetCode("asim1289");
 		Mockito.verify(spytokenHandler).createResetCode("asim1289");
 		mockMvc.perform(get("/ForgotPassword/SubmitCode")

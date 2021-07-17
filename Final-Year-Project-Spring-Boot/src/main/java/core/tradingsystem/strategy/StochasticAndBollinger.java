@@ -181,7 +181,7 @@ public class StochasticAndBollinger extends Strategy {
         float SD = (float) Math.sqrt(standardDeviation/length);
         float middle = (float) SMA;
         float upper =middle + ( SD*differentialRange);
-        float lower = middle - ( SD*differentialRange);	      
+        float lower = middle - ( SD*differentialRange);	
         return new float[] {upper,middle,lower};		
         
     }

@@ -60,9 +60,10 @@ public class EmaCrossover extends Strategy {
 	public Order getResponce(Position currentPosition,CandleDataHandler CDH,
 			boolean usesLiveData,int datePointer,CurrencyPair currency,int stopLoss) {
 		
-		Candle latestMin = CDH.getCandleData(currency, 2, false,datePointer).get(1);
+	
 		int dataAmt = emaLtPeriod*2;
 		List<Candle> candles = CDH.getCandleData(currency, dataAmt, usesLiveData, datePointer);
+		Candle latestMin = candles.get(candles.size()-1);
 		List<Float> EMASValues = calculateEMA(candles,emaStPeriod);
 		List<Float> EMALValues = calculateEMA(candles,emaLtPeriod);
 		latestEmaSValue = EMASValues.get(EMASValues.size()-1);

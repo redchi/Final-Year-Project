@@ -70,7 +70,7 @@ public class LoginTests {
 	}
 
 	@Test
-	public void loginAttempt_correct() throws Exception {
+	public void loginAttempt_correctTest() throws Exception {
 		MockHttpSession session = new MockHttpSession();
 		MvcResult res = mockMvc.perform(get("/loginAttempt")
 					.param("username", "asim1289")
@@ -84,7 +84,7 @@ public class LoginTests {
 	
 	
 	@Test
-	public void loginAttempt_Incorrect() throws Exception {
+	public void loginAttempt_IncorrectTest() throws Exception {
 		
 		ModelAndView mv = mockMvc.perform(get("/loginAttempt")
 					.param("username", "asim1289")

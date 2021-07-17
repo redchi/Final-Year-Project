@@ -12,5 +12,16 @@
            <property name="javax.persistence.jdbc.password" value=""/>
         </properties>
     </persistence-unit>
+    
+    
+       <persistence-unit name="p2">
+
+        <properties>
+           <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+           <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql4.freemysqlhosting.net/sql4425899"/>
+           <property name="javax.persistence.jdbc.user" value="sql4425899"/>
+           <property name="javax.persistence.jdbc.password" value="SSAYCkQLQF"/>
+        </properties>
+    </persistence-unit>
 
 </persistence>
