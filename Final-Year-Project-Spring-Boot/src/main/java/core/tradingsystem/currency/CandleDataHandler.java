@@ -25,7 +25,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import core.tradingsystem.strategy.Strategy;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CandleDataHandler - responsible for loading live and simulated currency data 
  * and passing this data to who ever requests it
