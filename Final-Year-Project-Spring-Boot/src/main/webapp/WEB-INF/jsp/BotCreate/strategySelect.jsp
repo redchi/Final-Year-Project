@@ -12,7 +12,7 @@
   <meta name="description" content="">
   
   
-  <title>strategySelector</title>
+  <title>Select Strategy</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/tether/tether.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
@@ -92,7 +92,7 @@
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Mobirise is an easy website builder. Just drop site elements to your page, add content and style it to look the way you like.</p>
                     </div>
                     <!-- ALSO NEEDS TO BE INTERMDIARY -->
-                    <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/EmaCrossOver" class="btn item-btn btn-black display-7" >Select</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/EmaCrossOver" class="btn item-btn btn-black display-7" id="emaCrossOverClick" >Select</a></div>
                 </div>
             </div>
             <div class="item features-image сol-12 col-md-6 col-lg-4">
@@ -106,7 +106,7 @@
                             HTML/CSS Coding</h6>
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">You don't have to code to create your own site. Select one of available themes in the Mobirise Site Maker.</p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/StochasticAndEma" class="btn item-btn btn-black display-7">Select</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/StochasticAndEma" class="btn item-btn btn-black display-7" id="stochasticAndEmaClick">Select</a></div>
                 </div>
             </div>
             <div class="item features-image сol-12 col-md-6 col-lg-4">
@@ -119,7 +119,7 @@
                         <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">Creating Your Brand</h6>
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Select the theme that suits you. Each theme in the Mobirise Website Software contains a set of unique blocks.<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/BollingerAndStochastic" class="btn item-btn btn-black display-7">Select</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/BollingerAndStochastic" class="btn item-btn btn-black display-7" id="stochasticAndBollingerClick">Select</a></div>
                 </div>
             </div>
             

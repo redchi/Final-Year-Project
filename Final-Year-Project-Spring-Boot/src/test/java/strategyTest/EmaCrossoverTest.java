@@ -79,6 +79,7 @@ public class EmaCrossoverTest {
 		Order order = strat.getResponce(null, cdh, false, 0, CurrencyPair.EUR_USD, 1000);
 		assertEquals(PositionType.SHORT, order.getOrderType());
 	}
+	
 	@Test
 	public void shouldExitFromBuy() {
 		CandleDataHandler cdh = Mockito.mock(CandleDataHandler.class);

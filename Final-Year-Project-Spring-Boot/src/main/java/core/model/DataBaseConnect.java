@@ -17,10 +17,10 @@ public class DataBaseConnect {
 	private EntityManagerFactory emf;
 	
 	public DataBaseConnect() {
-		emf = Persistence.createEntityManagerFactory("p2");
+		emf = Persistence.createEntityManagerFactory("p1");
 	}
 	
-	public boolean checkUsernameExists(String username) {
+	public synchronized boolean checkUsernameExists(String username) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		boolean exists = true;
@@ -37,7 +37,7 @@ public class DataBaseConnect {
 		return exists;
 	}
 	
-	public boolean checkEmailExists(String email) {
+	public synchronized boolean checkEmailExists(String email) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		boolean exists = true;
@@ -54,7 +54,7 @@ public class DataBaseConnect {
 		return exists;
 	}
 	
-	public User getUser(String username) {
+	public synchronized User getUser(String username) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		User user = null;
@@ -72,7 +72,7 @@ public class DataBaseConnect {
 		return user;
 	}
 	
-	public User getUserByEmail(String email) {
+	public synchronized User getUserByEmail(String email) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		User user = null;
@@ -91,7 +91,7 @@ public class DataBaseConnect {
 	}
 	
 	
-	public void updateUserPassword(String username,String hashedPassword) {
+	public synchronized void updateUserPassword(String username,String hashedPassword) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		User user = null;
@@ -109,7 +109,7 @@ public class DataBaseConnect {
 		em.close();
 	}
 	
-	public void addNewUser(User user) {
+	public synchronized void addNewUser(User user) {
 	   EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(user);

@@ -12,7 +12,7 @@
   <meta name="description" content="">
   
   
-  <title>AllBots</title>
+  <title>My Bots</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/tether/tether.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap-grid.min.css">

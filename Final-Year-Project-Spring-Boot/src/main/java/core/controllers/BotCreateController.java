@@ -80,7 +80,6 @@ public class BotCreateController {
 	@RequestMapping("/createBot/submitGenralBotCreateForm")
 	public ModelAndView submitGenralBotCreateForm(@ModelAttribute BotCreateForm formDetails,
 			RedirectAttributes redirectAttrs,HttpSession session) {
-		
 		if(isloggedIn(session) == true) {
 			List<String> errors = formDetails.checkForErrors();
 			String username = (String) session.getAttribute("username");

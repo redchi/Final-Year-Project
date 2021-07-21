@@ -65,7 +65,7 @@
 					        <li class="nav-item"><a class="nav-link link text-black display-4" href="${pageContext.request.contextPath}/home">Home</a></li>
 	           			    <li class="nav-item"><a class="nav-link link text-black display-4" href="${pageContext.request.contextPath}/info"> Guide</a></li>
 	             			<li class="nav-item"><a class="nav-link link text-black display-4" href="${pageContext.request.contextPath}/allBots">My Bots</a></li>
-	               			<li class="nav-item"><a class="nav-link link text-black display-4" href="${pageContext.request.contextPath}/logout">Logout</a></li>
+	               			<li class="nav-item"><a class="nav-link link text-black display-4" href="${pageContext.request.contextPath}/logout" id="nav-logout">Logout</a></li>
 					    </c:otherwise>
 					</c:choose>
 				</ul>           
@@ -112,12 +112,12 @@
                 <form action="${pageContext.request.contextPath}/loginAttempt" method="GET" class="mbr-form form-with-styler mx-auto" >
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="name">
-                            <input type="text" name="username" placeholder="Username" data-form-field="name" class="form-control" value="" id="name-form6-13">
+                            <input type="text" name="username" placeholder="Username" data-form-field="name" class="form-control" value="" id="username" required>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="email">
-                            <input type="password" name="password" placeholder="Password" data-form-field="email" class="form-control" value="" id="email-form6-13">
+                            <input type="password" name="password" placeholder="Password" data-form-field="email" class="form-control" value="" id="password" required>
                         </div>
-                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4">Login</button></div><br><p> </p>
+                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4" id="loginSubmit">Login</button></div><br><p> </p>
 						<div></div>
 						<div class="mbr-section-btn align-center" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove"><a class="btn btn-secondary" href="${pageContext.request.contextPath}/ForgotPassword" data-app-placeholder="Type Text">Foogot Password</a></div>
 						                  

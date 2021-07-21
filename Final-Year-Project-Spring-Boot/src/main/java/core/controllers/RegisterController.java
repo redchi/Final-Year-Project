@@ -93,7 +93,7 @@ public class RegisterController {
 			errorMsgs.add("Email is invalid");
 		}
 		if(validPassword == false) {
-			errorMsgs.add("Invalid password needs to be 6-32 charecters and have atleast 1 Uppercase letter 1 Lowercase letter and 1 number");
+			errorMsgs.add("Invalid password needs to be 6-32 charecters and have atleast 1 uppercase letter, 1 lowercase letter and 1 number");
 		}
 		if(validUsername == false) {
 			errorMsgs.add("Invalid username needs to be 5-20 aphanumeric charecters without spaces and no special charecters");

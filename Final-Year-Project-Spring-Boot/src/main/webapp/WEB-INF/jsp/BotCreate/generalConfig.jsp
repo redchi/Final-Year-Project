@@ -127,15 +127,15 @@
                     <div class="row">
                       <!-- toggle swtich doesnt send data when off -->
                          <div class="col-lg-12 col-md-12 col-sm-12 form-group d-flex bd-highlight  justify-content-center" data-for="email">
-                          <input name="usesSimulatedData" type="checkbox" checked data-toggle="toggle" data-on="Simulated data" data-off="Live data" data-onstyle="success" data-offstyle="warning"   data-form-field="email" class="form-control" >
+                          <input name="usesSimulatedData" type="checkbox" checked data-toggle="toggle" data-on="Simulated data" data-off="Live data" id="liveDataToggle"   data-onstyle="success" data-offstyle="warning"   data-form-field="email" class="form-control" >
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="name">
-                            <input type="text" name="name" placeholder="Bot Name" data-form-field="name" class="form-control" value="" required >
+                            <input type="text" name="name" placeholder="Bot Name" data-form-field="name" class="form-control" value="" id="botName"required >
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="email">
-                                <input list="CurrencyPairsList" name="currencyPair" data-form-field="email" class="form-control" placeholder="Currency" required>
+                                <input list="CurrencyPairsList" name="currencyPair" data-form-field="email" class="form-control" placeholder="Currency" id="currency" required>
                                   <datalist id="CurrencyPairsList">
                                     <option value="EUR_USD">
                                   </datalist>
@@ -145,11 +145,11 @@
                            
 
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="email">
-                            <input type="number" name="maxNumTrades" placeholder="Maximum number of trades" class="form-control" value="" required>
+                            <input type="number" name="maxNumTrades" placeholder="Maximum number of trades" class="form-control" value="" id="maxTrades" required>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="email">
-                            <input type="number" name="stopLoss" placeholder="Stop loss"  class="form-control" value="" required>
+                            <input type="number" name="stopLoss" placeholder="Stop loss"  class="form-control" value="" id="stopLoss" required>
                         </div>
 
 
@@ -160,7 +160,7 @@
                 
                         
                         
-                        <div class="col-auto mbr-section-btn align-center"><button type="submit"  class="btn btn-primary display-4">Next</button></div>
+                        <div class="col-auto mbr-section-btn align-center"><button type="submit"  class="btn btn-primary display-4" id="submit">Next</button></div>
                     </form></div>
                 
             </div>

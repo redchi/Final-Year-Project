@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,11 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
  *  these do not need any input parameters and do not communicate with model functionality
  */
 @Controller
-public class StaticViewController {
+public class StaticViewController implements ErrorController {
 	
 	@RequestMapping(value = "/home")
 	public String showHome(HttpSession session) {
-		session.setAttribute("username", "test1");
+		//session.setAttribute("username", "test1");
 		return "home";
 	}
 	
@@ -53,5 +55,12 @@ public class StaticViewController {
 		session.invalidate();
 		return "redirect:/home";
 	}
+	
+	@RequestMapping(value = "/error")
+	public String exception() {
+		return "error404";
+	}
+	
+	
 	
 }

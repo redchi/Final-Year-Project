@@ -248,11 +248,7 @@ display: none;
 
 <!-- Chart code -->
 <script>
-
-
-
 var botID = "${bot.ID}" 
-
 
 function ini(){
 setInterval(function () {
@@ -260,6 +256,27 @@ setInterval(function () {
                         }
                         , 1000);
 }
+
+function callForUpdate() {
+	  var url = "${pageContext.request.contextPath}/getBotStateInfo?botID="+botID;
+	  var xhttp;
+	  xhttp=new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      callbackFunc(this);
+	    }
+	  };
+	  xhttp.open("GET", url, true);
+	  xhttp.send();
+	}
+
+function callbackFunc(xhttp) {
+  respObj = JSON.parse(xhttp.responseText);
+  chart.data = respObj.candleData;
+  updateText();
+}
+
+
 
 function pauseTradingClick(){
 	  var url = "${pageContext.request.contextPath}/pauseTradingBot?botID="+botID;
@@ -465,29 +482,9 @@ function updateTradingHistoryTable(){
 			  }
 
 		}
-	
-	
-//	$("#tableBody").append
 }
 
-function callForUpdate() {
-  var url = "${pageContext.request.contextPath}/getBotStateInfo?botID="+botID;
-  var xhttp;
-  xhttp=new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      callbackFunc(this);
-    }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}
 
-function callbackFunc(xhttp) {
-  respObj = JSON.parse(xhttp.responseText);
-  chart.data = respObj.candleData;
-  updateText();
-}
 
 
 

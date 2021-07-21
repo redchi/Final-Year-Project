@@ -111,18 +111,18 @@
                 <form action="${pageContext.request.contextPath}/registerAttempt" method="POST" class="mbr-form form-with-styler mx-auto" >
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="name">
-                            <input type="text" name="username" placeholder="Username" data-form-field="name" class="form-control" value="" id="name-form6-13">
+                            <input type="text" name="username" placeholder="Username" data-form-field="name" class="form-control" value="" id="username">
                         </div>
                          <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="name">
-                            <input type="email" name="email" placeholder="email" data-form-field="name" class="form-control" value="" id="name-form6-13">
+                            <input type="email" name="email" placeholder="email" data-form-field="name" class="form-control" value="" id="email">
                         </div>
                          <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="name">
-                            <input type="password" name="password" placeholder="password" data-form-field="name" class="form-control" value="" id="name-form6-13">
+                            <input type="password" name="password" placeholder="password" data-form-field="name" class="form-control" value="" id="password">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="email">
-                            <input type="password" name="confirmPassword" placeholder="confirm Password" data-form-field="email" class="form-control" value="" id="email-form6-13">
+                            <input type="password" name="confirmPassword" placeholder="confirm Password" data-form-field="email" class="form-control" value="" id="confirmPassword">
                         </div>
-                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4">Register</button></div>
+                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4" id="submit">Register</button></div>
                     </div>
                 </form>
             </div>

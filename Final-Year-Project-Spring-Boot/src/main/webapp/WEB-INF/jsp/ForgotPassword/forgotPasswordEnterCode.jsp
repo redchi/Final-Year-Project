@@ -108,9 +108,9 @@
                 <form action="${pageContext.request.contextPath}/ForgotPassword/SubmitCode" method="POST" class="mbr-form form-with-styler mx-auto" >
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="name">
-                            <input type="text" name="code" placeholder="Reset Code" data-form-field="name" class="form-control" value="" id="name-form6-13">
+                            <input type="text" name="code" placeholder="Reset Code" data-form-field="name" class="form-control" value="" id="code">
                         </div>
-                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4">Login</button></div>
+                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4" id="submit">Submit</button></div>
                     </div>
                 </form>
             </div>

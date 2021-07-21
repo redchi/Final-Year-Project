@@ -12,7 +12,7 @@
   <meta name="description" content="">
   
   
-  <title>StrateguEditor1</title>
+  <title>Ema Crossover Config</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/tether/tether.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap-grid.min.css">
@@ -105,26 +105,25 @@
         <div class="row content-wrapper justify-content-center">
             <div class="col-lg-3 offset-lg-1 mbr-form">
             <!--  NEEDS INTERMEDIATERY METHOD -->>
-                <form action="${pageContext.request.contextPath}//createBot/EmaCrossOverFormSubmit" method="GET" class="mbr-form form-with-styler" >
+                <form action="${pageContext.request.contextPath}/createBot/EmaCrossOverFormSubmit" method="GET" class="mbr-form form-with-styler" >
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h1 class="mbr-section-title mb-4 display-2"><strong>Dual Moving Average</strong></h1>
+                        <div class="col-lg-12 col-md-12 col-sm-12">                            <h1 class="mbr-section-title mb-4 display-2"><strong>Dual Moving Average</strong></h1>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <p class="mbr-text mbr-fonts-style mb-4 display-7">
                                 Edit strategy Parameters</p>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="name">
-                            <input type="number" name="EmaL" placeholder="Long term EMA value" data-form-field="name" class="form-control" value="" required>
+                            <input type="number" name="EmaL" placeholder="Long term EMA value" data-form-field="name" class="form-control" value="" id="emaL" required>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="number" name="EmaS" placeholder="Short term EMA value" data-form-field="email" class="form-control" value="" required >
+                            <input type="number" name="EmaS" placeholder="Short term EMA value" data-form-field="email" class="form-control" value="" id="emaS" required >
                         </div>
                          <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="number" name="buffer" placeholder="Buffer" data-form-field="email" class="form-control" value="" required>
+                            <input type="number" name="buffer" placeholder="Buffer" data-form-field="email" class="form-control" value="" id="buffer"  required>
                         </div>
                         
-                        <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4">Submit</button></div>
+                        <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4" id="submit">Submit</button></div>
                         <div class="col-12 col-md-auto mbr-section-btn"><a href="${pageContext.request.contextPath}/EmaCrossoverGuide" class="btn btn-info display-4">Learn more</a></div>
                     </div>
                 </form>

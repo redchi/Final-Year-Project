@@ -12,7 +12,7 @@
   <meta name="description" content="">
   
   
-  <title>StochasticAndBollinger</title>
+  <title>Stochastic And Bollinger Config</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/tether/tether.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap-grid.min.css">
@@ -115,13 +115,12 @@
                                 Edit strategy Parameters</p>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="name">
-                            <input type="number" name="bollinger" placeholder="Bollinger period" data-form-field="name" class="form-control" value="" required>
+                            <input type="number" name="bollinger" placeholder="Bollinger period" data-form-field="name" class="form-control" value="" id="bollinger" required>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="number" name="stochastic" placeholder="Stochastic period " data-form-field="email" class="form-control" value="" required >
+                            <input type="number" name="stochastic" placeholder="Stochastic period " data-form-field="email" class="form-control" value="" id="stochastic" required >
                         </div>
-                        
-                        <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4">Submit</button></div>
+                        <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4" id="submit">Submit</button></div>
                         <div class="col-12 col-md-auto mbr-section-btn"><a href="${pageContext.request.contextPath}/StochasticAndBollingerGuide" class="btn btn-info display-4">Learn more</a></div>
                     </div>
                 </form>

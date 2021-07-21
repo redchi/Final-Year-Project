@@ -46,7 +46,7 @@ public class BotInfoController implements InitializingBean {
 		System.out.println("#Bot info con after prop");
 		botManager.mainTradingLoop();
 		dataHandler.loadDataFromCSV();
-	//	dataHandler.loadHistoricalDataLiveData();
+	//	dataHandler.loadHistoricalDataFromAPI();
 	//	dataHandler.forexUpdateLoop();
 		loadTests();
 	}
@@ -148,7 +148,7 @@ public class BotInfoController implements InitializingBean {
 		if(isloggedIn(session)==true) {
 			String username = (String) session.getAttribute("username");
 			TradingBot bot = botManager.getBot(botID);
-			if(bot != null && bot.getLinkedUsername() == username) {
+			if(bot != null && bot.getLinkedUsername().equals(username)) {
 				ModelAndView mv = new ModelAndView();
 				mv.addObject("bot", bot);
 				mv.setViewName("BotView/botView");
