@@ -10,7 +10,6 @@ import core.tradingsystem.tradingbot.Order;
 import core.tradingsystem.tradingbot.Position;
 import core.tradingsystem.tradingbot.PositionType;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class EmaCrossover.
  */
@@ -70,34 +69,50 @@ public class EmaCrossover extends Strategy {
 		latestEmaLValue = EMALValues.get(EMASValues.size()-1);
 		latestPrice = candles.get(candles.size()-1).getClose();
 						
+		
+		
 		if(currentPosition == null) { // NO OPEN POSITIONS
 			if(BuyOpen() == true) {
-				String reason = "Short term Ema is above long term EMA";
+				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
+				+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
+				+"\n Short term average > Long term average"
+				;
+				
 				return new Order(PositionType.BUY,currency,latestMin,reason);
 			}
 			else if(ShortOpen() == true) {
-				String reason = "Short term Ema is below long term EMA";
+				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
+						+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
+						+"\n Short term average < Long term average"
+						;
+				
 				return new Order(PositionType.SHORT,currency,latestMin,reason);
 			}
 		}
 		// there is a open position so check if we hit stop loss first
 		else if(super.stopLossReached(latestPrice,(float)currentPosition.getOpeningPrice(), 
 				currentPosition.getType(), stopLoss)) {
-			String reason = "Stop Loss Reached!";
+			String reason = "Stop Loss of "+stopLoss+" pips was reached!";
 			return new Order(PositionType.CLOSE,currency,latestMin,reason);
 		}	
 		else if(currentPosition.getType() == PositionType.BUY) { // currently in buy position
 			
 			if(BuyClose() == true) {
 				// new order to close
-				String reason = "Short term Ema is below long term EMA";
+				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
+				+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
+				+"\n Short term average < Long term average"
+				;
 				return new Order(PositionType.CLOSE,currency,latestMin,reason);
 			}
 		}
 		
 		else if(currentPosition.getType() == PositionType.SHORT) {//currently in short position
 			if(ShortClose() == true) {
-				String reason = "Short term Ema is above long term EMA";
+				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
+				+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
+				+"\n Short term average > Long term average"
+				;
 				return new Order(PositionType.CLOSE,currency,latestMin,reason);
 			}
 		}
@@ -190,7 +205,7 @@ public class EmaCrossover extends Strategy {
 		ArrayList<String> output = new ArrayList<String>();
 		output.add("Short Term Ema: "+emaStPeriod);
 		output.add("Long Term Ema: "+emaLtPeriod);
-		output.add("buffer: "+bufferIn);
+		output.add("Buffer: "+bufferIn);
 		return output;
 	}
 

@@ -12,7 +12,7 @@
   <meta name="description" content="">
   
   
-  <title>forgotpasswordEmailEnter</title>
+  <title>Forgot password</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/tether/tether.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">

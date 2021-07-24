@@ -125,7 +125,8 @@ public class TradingBotManager{
 	public synchronized void deleteTradingBot(String botID) {
 		TradingBot bot = this.getBot(botID);
 		String username = bot.getLinkedUsername();
-		activlyTradingBots.remove(this.getBot(botID));	
+		activlyTradingBots.remove(bot);	
+		pausedTradingBots.remove(bot);
 		synchronized(usersToTradingBot) {
 			synchronized(botIDtoTradingBot) {
 				usersToTradingBot.get(username).remove(bot);

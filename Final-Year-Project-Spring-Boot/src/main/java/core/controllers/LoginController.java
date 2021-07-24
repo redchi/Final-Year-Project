@@ -64,7 +64,7 @@ public class LoginController {
 	@RequestMapping(value = "/loginAttempt")
 	public ModelAndView login(@RequestParam String username,@RequestParam String password,HttpSession httpSession
 			,RedirectAttributes redirectAttrs) {	 
-		// trys to find user in database that has same the username 
+		// tries to find user in database that has same the username 
 		User user = dataBaseCon.getUser(username);
 		// hashes submitted password 
 		String hashedPassword  = PasswordHasher.get_SHA_512_SecurePassword(password);

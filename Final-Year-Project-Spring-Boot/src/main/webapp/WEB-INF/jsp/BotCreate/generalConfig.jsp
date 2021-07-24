@@ -120,7 +120,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" >
-				<!--  SHOULD BE INTERMEDIRY LINK NOT BASIC VIEW ,  -->>
+				<!--  SHOULD BE INTERMEDIRY LINK NOT BASIC VIEW ,  -->
                 <form action="${pageContext.request.contextPath}/createBot/submitGenralBotCreateForm" method="GET" class="mbr-form form-with-styler mx-auto" id="mForm" >
 
                     <p class="mbr-text mbr-fonts-style align-center mb-4 display-7">Details of trading bot</p>

@@ -1,4 +1,4 @@
-package core;
+package core.FunctionalTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -54,6 +54,7 @@ public class LoginFunctionalTest {
     }
 
 	@Test
+	// TEST ID = 1
 	public void shouldLogin() {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/login");
@@ -66,6 +67,7 @@ public class LoginFunctionalTest {
 	}
 	
 	@Test
+	// TEST ID = 2
 	public void shouldNotLogin() {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/login");
@@ -80,6 +82,7 @@ public class LoginFunctionalTest {
 	}
 	
 	@Test
+	//TEST ID = 3
 	public void shouldLogout() {
 		WebDriver driver = new ChromeDriver();
 		//login

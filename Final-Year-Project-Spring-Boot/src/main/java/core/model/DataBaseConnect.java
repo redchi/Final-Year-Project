@@ -11,15 +11,28 @@ import org.springframework.stereotype.Service;
 
 import core.tradingsystem.tradingbot.TradingBot;
 
+/**
+ * The Class DataBaseConnect.
+ */
 @Service
 public class DataBaseConnect {
 
+	/** The EntityManagerFactory. */
 	private EntityManagerFactory emf;
 	
+	/**
+	 * Instantiates a new data base connect.
+	 */
 	public DataBaseConnect() {
 		emf = Persistence.createEntityManagerFactory("p1");
 	}
 	
+	/**
+	 * Checks if username is linked to a user
+	 *
+	 * @param username the username
+	 * @return true, if successful
+	 */
 	public synchronized boolean checkUsernameExists(String username) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -37,6 +50,12 @@ public class DataBaseConnect {
 		return exists;
 	}
 	
+	/**
+	 * Checks if email is linked to a users.
+	 *
+	 * @param email the email
+	 * @return true, if successful
+	 */
 	public synchronized boolean checkEmailExists(String email) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -54,6 +73,12 @@ public class DataBaseConnect {
 		return exists;
 	}
 	
+	/**
+	 * Gets the user by username
+	 *
+	 * @param username the username
+	 * @return the user
+	 */
 	public synchronized User getUser(String username) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -72,6 +97,12 @@ public class DataBaseConnect {
 		return user;
 	}
 	
+	/**
+	 * Gets the user by email.
+	 *
+	 * @param email the email
+	 * @return the user by email
+	 */
 	public synchronized User getUserByEmail(String email) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -91,6 +122,12 @@ public class DataBaseConnect {
 	}
 	
 	
+	/**
+	 * Updates a users password.
+	 *
+	 * @param username the username
+	 * @param hashedPassword the hashed password
+	 */
 	public synchronized void updateUserPassword(String username,String hashedPassword) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -109,6 +146,11 @@ public class DataBaseConnect {
 		em.close();
 	}
 	
+	/**
+	 * Adds the new user.
+	 *
+	 * @param user the user
+	 */
 	public synchronized void addNewUser(User user) {
 	   EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();

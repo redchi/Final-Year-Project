@@ -14,12 +14,23 @@ import org.springframework.web.servlet.ModelAndView;
 import core.tradingsystem.tradingbot.TradingBot;
 import core.tradingsystem.tradingbot.TradingBotManager;
 
+/**
+ * The Class BotEditController - handles all functionality relating to interaction with trading bot
+ */
 @Controller
 public class BotEditController {
 
+	/** the trading bot manager. */
 	@Autowired
-	TradingBotManager botManager;
+	public TradingBotManager botManager;
 	
+	/**
+	 * Pause trading a bot.
+	 *
+	 * @param botID the bot ID
+	 * @param response the response
+	 * @param session the session
+	 */
 	@RequestMapping("/pauseTradingBot")
 	public void pauseTradingBot(@RequestParam String botID, HttpServletResponse response,HttpSession session) {
 		if(isloggedIn(session) == true && botManager.checkAccessRights(botID,(String) session.getAttribute("username")) == true) {
@@ -37,6 +48,13 @@ public class BotEditController {
 		}
 	}
 	
+	/**
+	 * Start trading a bot.
+	 *
+	 * @param botID the bot ID
+	 * @param response the response
+	 * @param session the session
+	 */
 	@RequestMapping("/startTradingBot")
 	public void startTradingBot(@RequestParam String botID, HttpServletResponse response,HttpSession session) {
 		if(isloggedIn(session) == true && botManager.checkAccessRights(botID,(String) session.getAttribute("username")) == true) {
@@ -55,6 +73,13 @@ public class BotEditController {
 		}
 	}	
 	
+	/**
+	 * Reset trading count interupt of a trading bot
+	 *
+	 * @param botID the bot ID
+	 * @param response the response
+	 * @param session the session
+	 */
 	@RequestMapping("/resetTradingCount")
 	public void resetTradingCount(@RequestParam String botID, HttpServletResponse response,HttpSession session) {
 		if(isloggedIn(session) == true && botManager.checkAccessRights(botID,(String) session.getAttribute("username")) == true) {
@@ -74,6 +99,13 @@ public class BotEditController {
 		}
 	}
 	
+	/**
+	 * reset live market closed interupt
+	 *
+	 * @param botID the bot ID
+	 * @param response the response
+	 * @param session the session
+	 */
 	@RequestMapping("/checkMarketOpen")
 	public void checkTime(@RequestParam String botID, HttpServletResponse response,HttpSession session) {
 		if(isloggedIn(session) == true && botManager.checkAccessRights(botID,(String) session.getAttribute("username")) == true) {
@@ -93,6 +125,14 @@ public class BotEditController {
 	
 
 	
+	/**
+	 * Delete trading bot.
+	 *
+	 * @param botID the bot ID
+	 * @param response the response
+	 * @param session the session
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteTradingBot")
 	public ModelAndView deleteTradingBot(@RequestParam String botID, HttpServletResponse response,HttpSession session) {
 		if(isloggedIn(session) == true && botManager.checkAccessRights(botID,(String) session.getAttribute("username")) == true) {
@@ -103,6 +143,12 @@ public class BotEditController {
 	}
 
 
+	/**
+	 * Checks if is logged in.
+	 *
+	 * @param session the session
+	 * @return true, if is logged in
+	 */
 	private boolean isloggedIn(HttpSession session) {
 		if(session.getAttribute("username")==null) {
 			return false;

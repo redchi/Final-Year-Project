@@ -160,7 +160,7 @@ public class CandleDataHandler {
 		JsonNode jsonObj = mapper.readTree(jsonResponseString);
 	    
 		float open = Float.parseFloat(jsonObj.get("close").toString());
-		float close = Float.parseFloat(jsonObj.get("close").toString());
+		float close = Float.parseFloat(jsonObj.get("open").toString());
 		float high = Float.parseFloat(jsonObj.get("high").toString());
 		float low = Float.parseFloat(jsonObj.get("low").toString());
 		String date = jsonObj.get("date_time").toString().replace("\"", "");
@@ -210,7 +210,7 @@ public class CandleDataHandler {
 		ArrayList<Candle> latestMinutes = new ArrayList<Candle>();
 		for(JsonNode candleJson:jsonObj.get("quotes")) {
 			float open = Float.parseFloat(candleJson.get("close").toString());
-			float close = Float.parseFloat(candleJson.get("close").toString());
+			float close = Float.parseFloat(candleJson.get("open").toString());
 			float high = Float.parseFloat(candleJson.get("high").toString());
 			float low = Float.parseFloat(candleJson.get("low").toString());
 			String date = candleJson.get("date").toString().replace("\"", "");

@@ -1,15 +1,10 @@
 package core.controllers;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 
 /**
@@ -19,9 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class StaticViewController implements ErrorController {
 	
-	@RequestMapping(value = "/home")
-	public String showHome(HttpSession session) {
-		//session.setAttribute("username", "test1");
+	@RequestMapping(value={"", "/", "/home"})
+	public String showHome() {
 		return "home";
 	}
 	
@@ -31,18 +25,18 @@ public class StaticViewController implements ErrorController {
 	}
 	
 	@RequestMapping(value = "/EmaCrossoverGuide")
-	public String showstrat1guide() {
+	public String showEmaCrossoverGuide() {
 		return "Help/EmaCrossoverGuide";
 	}
 	
 	@RequestMapping(value = "/StochasticAndEmaGuide")
-	public String showstrat2guide() {
-		return "Help/StochasticAndEmaGuide";
+	public String showStochasticAndEmaGuide() {
+		return "Help/StocasticAndEmaGuide";
 	}
 	
 	@RequestMapping(value = "/StochasticAndBollingerGuide")
-	public String showstrat3guide() {
-		return "Help/StochasticAndBollingerGuide";
+	public String showstratStochasticAndBollingerGuide() {
+		return "Help/StocasticAndBollingerGuide";
 	}
 	
 	@RequestMapping(value = "/404")

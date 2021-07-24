@@ -246,7 +246,6 @@ display: none;
 </script>
 
 
-<!-- Chart code -->
 <script>
 var botID = "${bot.ID}" 
 
@@ -370,30 +369,30 @@ function updateText(){
     var currency = botInfo.currency;
 
     if(respObj.botInfo.interuptType == 0){
-        	document.getElementById("activeText").setAttribute('style','color:green');     
-        	document.getElementById("activeText").innerHTML = "Trading";
+        	$("#activeText").attr("style","color:green");   
+        	$("#activeText").html("Trading");
     }
     else{
-    	document.getElementById("activeText").setAttribute('style','color:red');     
-    	document.getElementById("activeText").innerHTML = "Paused";
+    	$("#activeText").attr("style","color:red");     
+    	$("#activeText").html("Paused");
     }
 
 	if(posType == "1"){
-		document.getElementById("botPos").setAttribute('style','color:green');     
-    	document.getElementById("botPos").innerHTML = "In Buy position";
-    	document.getElementById("enteredPrice").innerHTML ="Entered market at "+posOpen;
+		$("#botPos").attr("style","color:green");   
+    	$("#botPos").html("In Buy position");
+    	$("#enteredPrice").html("Entered market at "+posOpen);
     	
 	}
-	else if(posType == "2"){
-		document.getElementById("botPos").setAttribute('style','color:red');     
-    	document.getElementById("botPos").innerHTML = "In Short position";
-    	document.getElementById("enteredPrice").innerHTML ="Entered market at "+posOpen;
+	else if(posType == "2"){    
+		$("#botPos").attr("style","color:red");
+    	$("#botPos").html("In Short position");
+    	$("#enteredPrice").html("Entered market at "+posOpen);
    
 	}
-	else{
-		document.getElementById("botPos").setAttribute('style','color:black');     
-    	document.getElementById("botPos").innerHTML = "No open position";
-    	document.getElementById("enteredPrice").innerHTML ="";
+	else{ 
+		$("#botPos").attr("style","color:black");
+    	$("#botPos").html("No open position");
+    	$("#enteredPrice").html("");
 	}
 
 	if(isNaN(PL)){

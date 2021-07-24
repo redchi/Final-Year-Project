@@ -18,13 +18,28 @@ import core.model.PasswordHasher;
 import core.model.PasswordTokenHandler;
 import core.model.User;
 
+/**
+ * The Class ForgotPasswordController.
+ */
 @Controller
 public class ForgotPasswordController {
 
+	/** The dused to connect to database. */
 	private DataBaseConnect dataBaseCon;
+	
+	/** The mailer used to end email. */
 	private Mailer mailer;
+	
+	/** The pth. */
 	private PasswordTokenHandler PTH;
 	
+	/**
+	 * Instantiates a new forgot password controller.
+	 *
+	 * @param dataBaseCon the data base con
+	 * @param mailer the mailer
+	 * @param PTH the pth
+	 */
 	@Autowired
 	public ForgotPasswordController(DataBaseConnect dataBaseCon,Mailer mailer,PasswordTokenHandler PTH) {
 		this.dataBaseCon = dataBaseCon;
@@ -32,6 +47,13 @@ public class ForgotPasswordController {
 		this.PTH = PTH;
 	}
 
+	/**
+	 * called when email is submitted, checks if email exists,
+	 * if so then sends a recovery code to that email address
+	 * @param email the email
+	 * @param redirectAttrs the redirect attrs
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/ForgotPassword/SubmitEmail")
 	public ModelAndView forgotPassword(@RequestParam String email,
 			RedirectAttributes redirectAttrs) {
@@ -51,6 +73,15 @@ public class ForgotPasswordController {
 		return mv;
 	}
 	
+	/**
+	 *  called when recovery code is submitted, checks if recovery code is valid
+	 *  if so then user is redirected to reset password
+	 *
+	 * @param code the code
+	 * @param redirectAttrs the redirect attrs
+	 * @param session the session
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/ForgotPassword/SubmitCode")
 	public ModelAndView forgotPassword(@RequestParam String code,
 			RedirectAttributes redirectAttrs,HttpSession session) {
@@ -71,6 +102,16 @@ public class ForgotPasswordController {
 	}
 	
 	
+	/**
+	 * called when new password is submitted by user, checks if user is authenticated
+	 * then validates password, if it passes then database is updated
+	 *
+	 * @param password the password
+	 * @param confirmPassword the confirm password
+	 * @param redirectAttrs the redirect attrs
+	 * @param session the session
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/ForgotPassword/SubmitNewPassword")
 	public ModelAndView forgotPassword(@RequestParam String password,@RequestParam String confirmPassword,
 			RedirectAttributes redirectAttrs,HttpSession session) {	
@@ -109,6 +150,12 @@ public class ForgotPasswordController {
 	}
 	
 	
+	/**
+	 * displays the Forgot password email form.
+	 *
+	 * @param errorMsgArr the error msg arr
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/ForgotPassword")
 	public ModelAndView forgotPasswordEmailForm(@RequestParam(required = false, value = "errorMsgArr") ArrayList<String> errorMsgArr) {
 		ModelAndView mv = new ModelAndView();
@@ -120,6 +167,12 @@ public class ForgotPasswordController {
 	}
 	
 	
+	/**
+	 * displays the Forgot password code form.
+	 *
+	 * @param errorMsgArr the error msg arr
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/ForgotPassword/EnterCode")
 	public ModelAndView forgotPasswordCodeForm(@RequestParam(required = false) ArrayList<String> errorMsgArr) {
 		ModelAndView mv = new ModelAndView();
@@ -130,6 +183,14 @@ public class ForgotPasswordController {
 		return mv;
 	}
 	
+	/**
+	 * displays the forgot password new password form.
+	 * but checks if user has permission to view this form
+	 *
+	 * @param errorMsgArr the error msg arr
+	 * @param session the session
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/ForgotPassword/EnterNewPassword")
 	public ModelAndView ForgotPasswordNewPasswordForm(@RequestParam(required = false) ArrayList<String> errorMsgArr,
 			HttpSession session) {

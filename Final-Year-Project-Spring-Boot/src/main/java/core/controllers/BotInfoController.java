@@ -27,20 +27,26 @@ import core.tradingsystem.tradingbot.TradingBot;
 import core.tradingsystem.tradingbot.TradingBotManager;
 
 
+/**
+ * The Class BotInfoController - handles all functionality relating to retrieving information from trading bots
+ */
 @Controller
 public class BotInfoController implements InitializingBean {
 
 	
+	/** The bot manager. */
 	@Autowired
 	TradingBotManager botManager;
 	
+	/** The data handler. */
 	@Autowired
 	CandleDataHandler dataHandler;
 	
-	public BotInfoController() {
-		System.out.println("#123");
-	}
-	
+	/**
+	 * After properties set.
+	 *
+	 * @throws Exception the exception
+	 */
 	public void afterPropertiesSet() throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("#Bot info con after prop");
@@ -52,6 +58,9 @@ public class BotInfoController implements InitializingBean {
 	}
 	 
 	
+	/**
+	 * Load tests.
+	 */
 	public void loadTests() {
 		String username = "test1"; // for testing purposses only
 		for(int i = 0 ; i<5; i ++) {
@@ -60,8 +69,6 @@ public class BotInfoController implements InitializingBean {
 			int EmaS = 5 + (int)(Math.random() * 20);
 			int EmaL = EmaS + (int)(Math.random() * (EmaS + 40));
 			int buffer = 3 + (int)(Math.random() * 10);
-		//	int pointer = 100 + (int)(Math.random() * 2000);
-			
 			Strategy strat = new EmaCrossover(EmaS, EmaL, buffer);
 			TradingBot bot = new TradingBot(username,
 					ID, 
@@ -76,6 +83,12 @@ public class BotInfoController implements InitializingBean {
 		}
 	}
 	
+	/**
+	 * Gets the random string.
+	 *
+	 * @param lenght the lenght
+	 * @return the random string
+	 */
 	protected String getRandomString(int lenght) {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
@@ -90,6 +103,12 @@ public class BotInfoController implements InitializingBean {
 	
 	
 	
+	/**
+	 * Display the allbots page
+	 *
+	 * @param session the session
+	 * @return the model and view
+	 */
 	@RequestMapping("/allBots")
 	public ModelAndView displayAllbots(HttpSession session) {
 		if(isloggedIn(session) == true) {
@@ -117,7 +136,15 @@ public class BotInfoController implements InitializingBean {
 		return mv;
 	}
 	
-	   @RequestMapping(value="/getBotStateInfo", produces = "application/json")
+	   /**
+   	 * Gets state of a trading bot and return response in json
+   	 *
+   	 * @param botID the bot ID
+   	 * @param response the response
+   	 * @param session the session
+   	 * @return the bot state
+   	 */
+   	@RequestMapping(value="/getBotStateInfo", produces = "application/json")
 	    @ResponseBody
 		public String getBotState(@RequestParam String botID, HttpServletResponse response,HttpSession session) {
 		  if(isloggedIn(session) == true) {
@@ -143,6 +170,13 @@ public class BotInfoController implements InitializingBean {
 		}
 	
 	
+	/**
+	 * Show bot view page
+	 *
+	 * @param botID the bot ID
+	 * @param session the session
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/viewBot")
 	public ModelAndView showBotView(@RequestParam String botID,HttpSession session) {
 		if(isloggedIn(session)==true) {
@@ -161,15 +195,18 @@ public class BotInfoController implements InitializingBean {
 	   
 
 
+	/**
+	 * Checks if user is logged in.
+	 *
+	 * @param session the session
+	 * @return true, if is logged in
+	 */
 	private boolean isloggedIn(HttpSession session) {
 		if(session.getAttribute("username")==null) {
 			return false;
 		}
 		return true;
 	}
-	
-	
-
 	
 	public class GeneralBotInfo {
 		private String name;
@@ -213,6 +250,9 @@ public class BotInfoController implements InitializingBean {
 		}
 	}
 	
+	
+
+
 	
 	
 }

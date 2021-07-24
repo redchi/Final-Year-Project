@@ -88,8 +88,8 @@
                     </div>
                     <div class="item-content">
                         <h5 class="item-title mbr-fonts-style display-5"><strong> Moving Average Crossover</strong></h5>
-                        <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">Website Design</h6>
-                        <p class="mbr-text mbr-fonts-style mt-3 display-7">Mobirise is an easy website builder. Just drop site elements to your page, add content and style it to look the way you like.</p>
+                        <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">Purely trend following</h6>
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">In this trading strategy, you will follow short term trends and exit when they reverse</p>
                     </div>
                     <!-- ALSO NEEDS TO BE INTERMDIARY -->
                     <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/EmaCrossOver" class="btn item-btn btn-black display-7" id="emaCrossOverClick" >Select</a></div>
@@ -101,9 +101,8 @@
                         <img src="${pageContext.request.contextPath}/assets/images/download-1-696x375.png" alt="" title="">
                     </div>
                     <div class="item-content">
-                        <h5 class="item-title mbr-fonts-style display-5"><strong>Stochastic and Ema</strong></h5>
-                        <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">
-                            HTML/CSS Coding</h6>
+                        <h5 class="item-title mbr-fonts-style display-5"><strong>Stochastic and Moving Average Strategy</strong></h5>
+                        <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">  Trend following and predictive</h6>
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">You don't have to code to create your own site. Select one of available themes in the Mobirise Site Maker.</p>
                     </div>
                     <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/StochasticAndEma" class="btn item-btn btn-black display-7" id="stochasticAndEmaClick">Select</a></div>
@@ -115,9 +114,9 @@
                         <img src="${pageContext.request.contextPath}/assets/images/download-2-696x375.png" alt="" title="">
                     </div>
                     <div class="item-content">
-                        <h5 class="item-title mbr-fonts-style display-5"><strong>Bollinger and stochastic</strong></h5>
-                        <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">Creating Your Brand</h6>
-                        <p class="mbr-text mbr-fonts-style mt-3 display-7">Select the theme that suits you. Each theme in the Mobirise Website Software contains a set of unique blocks.<br></p>
+                        <h5 class="item-title mbr-fonts-style display-5"><strong>Stochastic and Bollinger Strategy</strong></h5>
+                        <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">Purely predictive</h6>
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">In this trading strategy you will only predict when the market will go up or down.<br></p>
                     </div>
                     <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/BollingerAndStochastic" class="btn item-btn btn-black display-7" id="stochasticAndBollingerClick">Select</a></div>
                 </div>

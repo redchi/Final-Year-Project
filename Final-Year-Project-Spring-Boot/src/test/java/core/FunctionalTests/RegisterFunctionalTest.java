@@ -1,4 +1,4 @@
-package core;
+package core.FunctionalTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -51,6 +51,7 @@ public class RegisterFunctionalTest {
 	
 	
 	@Test
+	//TEST ID = 8
 	public void shouldRegister() {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/register");
@@ -73,7 +74,8 @@ public class RegisterFunctionalTest {
 	
 	
 	@Test
-	public void shouldNotRegister() {
+	//TEST ID = 9
+	public void shouldNotRegisterInvalidEmail() {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/register");
 		driver.findElement(By.id("username")).sendKeys("asim1289");
@@ -84,25 +86,39 @@ public class RegisterFunctionalTest {
 		String html = driver.getPageSource();
 		assertEquals(true,html.contains("Something went wrong"));
 		
+
+		driver.close();
+	}
+	
+	@Test
+	//TEST ID = 10
+	public void shouldNotRegisterInvalidUsername() {
+		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/register");
 		driver.findElement(By.id("username")).sendKeys("123123123a");
 		driver.findElement(By.id("email")).sendKeys("asim1289@gmail.com");
 		driver.findElement(By.id("password")).sendKeys("LikLikLik6");
 		driver.findElement(By.id("confirmPassword")).sendKeys("LikLikLik6");
 		driver.findElement(By.id("submit")).click();
-		html = driver.getPageSource();
+		String html = driver.getPageSource();
 		assertEquals(true,html.contains("Something went wrong"));
-		
+		driver.close();
+
+	}
+	@Test
+	//TEST ID = 11
+	public void shouldNotRegisterInvalidPassword() {
+		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/register");
 		driver.findElement(By.id("username")).sendKeys("asim1289");
 		driver.findElement(By.id("email")).sendKeys("test1@gmail.com");
 		driver.findElement(By.id("password")).sendKeys("LikL");
 		driver.findElement(By.id("confirmPassword")).sendKeys("LikL");
 		driver.findElement(By.id("submit")).click();
-		 html = driver.getPageSource();
+		String html = driver.getPageSource();
 		assertEquals(true,html.contains("Something went wrong"));
 		driver.close();
+
 	}
-	
 
 }

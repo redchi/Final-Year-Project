@@ -1,7 +1,6 @@
 package core.tradingsystem.strategy;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import core.tradingsystem.currency.Candle;
@@ -11,21 +10,43 @@ import core.tradingsystem.tradingbot.Order;
 import core.tradingsystem.tradingbot.Position;
 import core.tradingsystem.tradingbot.PositionType;
 
+/**
+ * The Class StochasticAndEma.
+ */
 public class StochasticAndEma extends Strategy {
 
+	/** The stochatic period. */
 	private final int stochaticPeriod;
+	
+	/** The ema period. */
 	private final int emaPeriod;
+	
+	/** The latest ema value. */
 	private float latestEmaValue;
+	
+	/** The latest stochastic value. */
 	private float latestStochasticValue;
+	
+	/** The latest price. */
 	private float latestPrice;
 	
 	
+	/**
+	 * Instantiates a new stochastic and ema.
+	 *
+	 * @param stochaticPeriod the stochatic period
+	 * @param emaPeriod the ema period
+	 */
 	public StochasticAndEma(int stochaticPeriod, int emaPeriod) {
 		super("stochastic and EMA");
 		this.stochaticPeriod = stochaticPeriod;
 		this.emaPeriod = emaPeriod;
 	}
-
+	
+	
+	/**
+	 * {@link Strategy#getResponce(Position, CandleDataHandler, boolean, int, CurrencyPair, int)}
+	 */
 	@Override
 	public Order getResponce(Position currentPosition,CandleDataHandler CDH,boolean usesLiveData,
 			int datePointer,CurrencyPair currency,int stopLoss) {
@@ -67,6 +88,11 @@ public class StochasticAndEma extends Strategy {
 		return null;
 	}
 
+	/**
+	 * Buy open.
+	 *
+	 * @return true, if successful
+	 */
 	private boolean buyOpen() {
 		if(latestPrice>latestEmaValue && latestStochasticValue<30) {
 			return true;
@@ -74,6 +100,11 @@ public class StochasticAndEma extends Strategy {
 		return false;
 	}
 	
+	/**
+	 * Short open.
+	 *
+	 * @return true, if successful
+	 */
 	private boolean shortOpen() {
 		if(latestPrice<latestEmaValue && latestStochasticValue>70) {
 			return true;
@@ -81,6 +112,11 @@ public class StochasticAndEma extends Strategy {
 		return false;
 	}
 	
+	/**
+	 * Short close.
+	 *
+	 * @return true, if successful
+	 */
 	private boolean shortClose() {
 		if(latestPrice>latestEmaValue || latestStochasticValue<20) {
 			return true;
@@ -88,6 +124,11 @@ public class StochasticAndEma extends Strategy {
 		return false;
 	}
 	
+	/**
+	 * Buy close.
+	 *
+	 * @return true, if successful
+	 */
 	private boolean buyClose() {
 		if(latestPrice<latestEmaValue || latestStochasticValue>80) {
 			return true;
@@ -96,6 +137,13 @@ public class StochasticAndEma extends Strategy {
 	}
 	
 	
+	/**
+	 * Calculate EMA.
+	 *
+	 * @param data the data
+	 * @param period the period
+	 * @return the list
+	 */
 	private List<Float> calculateEMA(List<Candle> data,int period) {
 		ArrayList<Float> EMA = new ArrayList<Float>();
 		float weight = 2/(((float)period) + 1);
@@ -110,6 +158,12 @@ public class StochasticAndEma extends Strategy {
 		
 	}
 	
+	/**
+	 * Calculate single stochastic value
+	 *
+	 * @param data the data
+	 * @return the float
+	 */
 	private Float calculateSingleStochastic(List<Candle> data){
 		 float high = data.get(0).getHigh();;
 		 float low = data.get(0).getLow();
@@ -128,6 +182,11 @@ public class StochasticAndEma extends Strategy {
 	}
 	
 
+	/**
+	 * Gets the strategy config info.
+	 *
+	 * @return the strategy config info
+	 */
 	@Override
 	public ArrayList<String> getStrategyConfigInfo() {
 		ArrayList<String> output = new ArrayList<String>();

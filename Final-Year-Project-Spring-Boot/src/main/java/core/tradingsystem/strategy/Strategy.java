@@ -8,7 +8,6 @@ import core.tradingsystem.tradingbot.Order;
 import core.tradingsystem.tradingbot.Position;
 import core.tradingsystem.tradingbot.PositionType;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Strategy.
  */
@@ -36,7 +35,8 @@ public abstract class Strategy {
 	}
 	
 	/**
-	 * Gets the responce.
+	 * calculates required indicators, judges what to do based on current market position
+	 * gives an order as a response
 	 *
 	 * @param currentPosition the current position
 	 * @param CDH the candleDataHandler

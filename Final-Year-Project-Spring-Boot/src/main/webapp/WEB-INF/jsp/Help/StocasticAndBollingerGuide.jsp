@@ -12,7 +12,7 @@
   <meta name="description" content="">
   
   
-  <title>info</title>
+  <title>Stochastic and Bollinger Help</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/tether/tether.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap-grid.min.css">
@@ -71,7 +71,7 @@
     </nav>
 </section>
 
-<section class="image1 cid-spURgbHnEj" id="image1-1g">
+<section class="engine"><a href="https://mobirise.info/r">free bootstrap template</a></section><section class="image2 cid-sCG8AYV9EX" id="image2-38">
     
 
     
@@ -80,21 +80,122 @@
         <div class="row align-items-center">
             <div class="col-12 col-lg-6">
                 <div class="image-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/images/4.jpg" alt="Mobirise">
-                    <p class="mbr-description mbr-fonts-style pt-2 align-center display-4">
-                    Image Description</p>
+                    <img src="assets/images/d3-492x457.png" alt="Mobirise">
+                    
                 </div>
             </div>
             <div class="col-12 col-lg">
                 <div class="text-wrapper">
-                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Strategy Info Page</strong></h3>
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Stochastic and bollinger strategy&nbsp;</strong></h3>
                     <p class="mbr-text mbr-fonts-style display-7">
-                        Use Mobirise website building software to create multiple sites for commercial and non-profit projects. Click on the image in this block to replace it. You can add a description below your image, or on the side. If you want to hide some of the text fields, open the Block parameters, and uncheck relevant options.</p>
+                        This strategy is purely predictive, it combines stochastic oscillator and Bollinger bands to predict when the price will reverse and enters in a favourable position. </p>
                 </div>
             </div>
         </div>
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/n" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site" style="color:#aaa;">https://mobirise.com</a> software</p></section><script src="${pageContext.request.contextPath}/assets/web/assets/jquery/jquery.min.js"></script>  <script src="${pageContext.request.contextPath}/assets/popper/popper.min.js"></script>  <script src="${pageContext.request.contextPath}/assets/tether/tether.min.js"></script>  <script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>  <script src="${pageContext.request.contextPath}/assets/smoothscroll/smooth-scroll.js"></script>  <script src="${pageContext.request.contextPath}/assets/dropdown/js/nav-dropdown.js"></script>  <script src="${pageContext.request.contextPath}/assets/dropdown/js/navbar-dropdown.js"></script>  <script src="${pageContext.request.contextPath}/assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="${pageContext.request.contextPath}/assets/theme/js/script.js"></script>  
+</section>
+
+<section class="video5 cid-sE2IS9pc3k" id="video5-3p">
+    
+    <div class="container">
+        <div class="title-wrapper mb-5">
+            <h4 class="mbr-section-title mbr-fonts-style mb-0 display-5">
+                <strong>What is the stochastic indicator?</strong></h4>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 video-block">
+                <div class="video-wrapper"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/SrCENnDVHRk?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+                
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    
+                    <p class="mbr-text mbr-fonts-style display-7">The stochastic oscillator is a momentum indicator comparing a particular closing price of a currency to a range of its prices over a certain period of time. It is used to generate overbought and oversold trading signals.&nbsp;readings over 80 are considered in the overbought range, and readings under 20 are considered oversold.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="video5 cid-sE2ISxHXCC" id="video5-3q">
+    
+    <div class="container">
+        <div class="title-wrapper mb-5">
+            <h4 class="mbr-section-title mbr-fonts-style mb-0 display-5">
+                <strong>What are Bollinger bands?</strong></h4>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 video-block">
+                <div class="video-wrapper"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/AWN-jpnRwJg?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+                
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    
+                    <p class="mbr-text mbr-fonts-style display-7">Bollinger Bands are envelopes plotted at a standard deviation level above and below a simple moving average of the price. Because the distance of the bands is based on standard deviation of two, they adjust to volatility swings in the underlying price. If price hits the lowerband it is considered in the oversold range and if price hits the upper band it is con considered in the overbought range.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content4 cid-sE2LUCjRxv" id="content4-3s">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-md-12 col-lg-10">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-5">
+                    <strong>How this strategy works</strong></h3>
+                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">
+<div><br></div><div>This strategy predicts where the price is going to go, if both Bollinger bands and stochastic oscillator signal market is in an oversold area then they predict market will go up so trading bot will enter into a buy position. When both Bollinger bands and stochastic oscillator signal market is in an overbought area then they predict market will down so trading bot will enter into a short position.  
+</div><div><br></div></h4>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="image2 cid-sE2LU5jEyd" id="image2-3r">
+    
+
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-4">
+                <div class="image-wrapper">
+                    <img src="assets/images/c1-317x599.png" alt="Mobirise">
+                    
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Strategy parameters explaned</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7"><strong>Stochastic Period (In minutes)
+<br></strong>This paramater tells the strategy how many minutes it should use to calculate the overbought or oversold zones.
+<br>The value for this can be between 5 and 200.&nbsp;<br><br><strong>Bollinger peiod (In minutes)
+<br></strong>This paramater tells the strategy how many minutes it should use to calculate the bollinger bands.<br><em>The value for this can be between 5 and 200.
+<br></em>
+<br><br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/playervimeo/vimeo_player.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
   
   
 </body>

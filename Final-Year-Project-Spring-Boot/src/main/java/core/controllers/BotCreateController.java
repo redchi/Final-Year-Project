@@ -25,7 +25,6 @@ import core.tradingsystem.strategy.Strategy;
 import core.tradingsystem.tradingbot.TradingBot;
 import core.tradingsystem.tradingbot.TradingBotManager;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BotCreateController - handles http requests relating to the creation of trading bot
  * displays the views, validates form submissions and creates trading bot
@@ -34,7 +33,7 @@ import core.tradingsystem.tradingbot.TradingBotManager;
 public class BotCreateController {
 
 	/** The bot manager. */
-	private TradingBotManager botManager;
+	public TradingBotManager botManager;
 
 	/**
 	 * Instantiates a new bot create controller.
@@ -98,7 +97,7 @@ public class BotCreateController {
 	}
 
 	/**
-	 * Select strategy.
+	 * shows select strategy page
 	 *
 	 * @param session the session
 	 * @return the model and view
@@ -112,7 +111,7 @@ public class BotCreateController {
 	}
 	
 	/**
-	 * Ema cross over form.
+	 * shows Ema crossover form
 	 *
 	 * @param errorMsgArr the error msg arr
 	 * @param session the session
@@ -134,6 +133,10 @@ public class BotCreateController {
 	
 	/**
 	 * Ema cross over form submit.
+	 * 
+	 * validates emas, emaL and buffer
+	 * if they are correct new EmaCrossover strategy is created
+	 * and new trading bot is created and inserted into trading bot manager
 	 *
 	 * @param EmaS the ema S
 	 * @param EmaL the ema L
@@ -149,14 +152,14 @@ public class BotCreateController {
 			BotCreateForm botDetails = (BotCreateForm) session.getAttribute("BotCreateForm");
 			String username = (String) session.getAttribute("username");
 			List<String> errors = botDetails.checkForErrors();
-			if(EmaS<=3 ||EmaS>150) {
-				errors.add("short term Ema period has to be between 4 and 150");
+			if(EmaS<4 ||EmaS>150) {
+				errors.add("short term Ema period has to be between 5 and 150");
 			}
 			if(EmaS>=EmaL) {
 				errors.add("long term Ema cannot be less than or equal to short term Ema");
 			}
-			if(EmaL>300) {
-				errors.add("long term ema period cannot be more than 300");
+			if(EmaL>200) {
+				errors.add("long term ema period cannot be more than 200");
 			}
 			if (buffer<0) {
 				errors.add("buffer cannot be less than 0");
@@ -195,7 +198,9 @@ public class BotCreateController {
 	}
 	
 	/**
-	 * Stochastic and ema form submi.
+	 * Stochastic and ema form submit.
+	 * validates parameters if they are correct 
+	 * then creates new trading bot
 	 *
 	 * @param ema the ema
 	 * @param stochastic the stochastic
@@ -204,17 +209,17 @@ public class BotCreateController {
 	 * @return the model and view
 	 */
 	@RequestMapping("/createBot/StochasticAndEmaFormSubmit")
-	public ModelAndView StochasticAndEmaFormSubmi(@RequestParam int ema, @RequestParam int stochastic,
+	public ModelAndView StochasticAndEmaFormSubmit(@RequestParam int ema, @RequestParam int stochastic,
 			HttpSession session,RedirectAttributes redirectAttrs) {
 		if(isloggedIn(session) == true && session.getAttribute("BotCreateForm") != null) {
 			BotCreateForm botDetails = (BotCreateForm) session.getAttribute("BotCreateForm");
 			String username = (String) session.getAttribute("username");
 			List<String> errors = botDetails.checkForErrors();
-			if(ema<=3 ||ema>300) {
-				errors.add("Ema period has to be between 4 and 300");
+			if(ema<4 ||ema>200) {
+				errors.add("Ema period has to be between 5 and 200");
 			}
-			if(ema<14 ||ema>300) {
-				errors.add("stochastic period has to be between 14 and 300");
+			if(ema<4 ||ema>200) {
+				errors.add("stochastic period has to be between 5 and 200");
 			}
 			// will catch all errors
 			if(errors.size() != 0) {
@@ -251,7 +256,7 @@ public class BotCreateController {
 	}
 	
 	/**
-	 * Stochastic and ema form.
+	 * Show Stochastic and ema config page .
 	 *
 	 * @param errorMsgArr the error msg arr
 	 * @param session the session
@@ -271,9 +276,11 @@ public class BotCreateController {
 	}
 	
 	
-	
 	/**
-	 * Bollinger and stochastic form submi.
+	 * Bollinger and stochastic form submit.
+	 * 
+	 * validates parameters if they are correct 
+	 * then creates new trading bot
 	 *
 	 * @param bollinger the bollinger
 	 * @param stochastic the stochastic
@@ -282,17 +289,17 @@ public class BotCreateController {
 	 * @return the model and view
 	 */
 	@RequestMapping("/createBot/BollingerAndStochasticFormSubmit")
-	public ModelAndView BollingerAndStochasticFormSubmi(@RequestParam int bollinger, @RequestParam int stochastic,
+	public ModelAndView BollingerAndStochasticFormSubmit(@RequestParam int bollinger, @RequestParam int stochastic,
 			HttpSession session,RedirectAttributes redirectAttrs) {
 		if(isloggedIn(session) == true && session.getAttribute("BotCreateForm") != null) {
 			BotCreateForm botDetails = (BotCreateForm) session.getAttribute("BotCreateForm");
 			String username = (String) session.getAttribute("username");
 			List<String> errors = botDetails.checkForErrors();
-			if(bollinger<=3 ||bollinger>300) {
-				errors.add("bollinger period has to be between 4 and 300");
+			if(bollinger<4 ||bollinger>200) {
+				errors.add("bollinger period has to be between 5 and 200");
 			}
-			if(stochastic<14 ||stochastic>300) {
-				errors.add("stochastic period has to be between 14 and 300");
+			if(stochastic<4 ||stochastic>200) {
+				errors.add("stochastic period has to be between 5 and 200");
 			}
 			// will catch all errors
 			if(errors.size() != 0) {
@@ -323,11 +330,10 @@ public class BotCreateController {
 			return new ModelAndView("redirect:/allBots");
 		}
 		return new ModelAndView("forward:/404"); 
-		
 	}
 	
 	/**
-	 * Bollinger and stochastic form.
+	 * Show Bollinger and stochastic config Page.
 	 *
 	 * @param errorMsgArr the error msg arr
 	 * @param session the session

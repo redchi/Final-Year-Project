@@ -1,4 +1,4 @@
-package core;
+package core.FunctionalTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -65,9 +65,12 @@ public class PasswordResetFunctionalTest {
 	} 
 	
 	@Test
+	//TEST ID = 4
 	public void shouldResetPassword() {
 		WebDriver driver = new ChromeDriver();
-		driver.get("http://localhost:"+port+"/ForgotPassword");
+		driver.get("http://localhost:"+port+"/login");
+		driver.findElement(By.id("forgotPassBtn")).click();
+		assertEquals("Forgot password",driver.getTitle());
 		driver.findElement(ById.id("email")).sendKeys("asim1289@gmail.com");
 		driver.findElement(By.id("submit")).click();
 		String html = driver.getPageSource();
@@ -83,7 +86,7 @@ public class PasswordResetFunctionalTest {
 		html = driver.getPageSource();
 		assertEquals(true, html.contains("enter a new password"));
 		
-		String newPassword = "Asdfghjk123";
+		String newPassword = "Likliklik7";
 		String newHashedPassword = PasswordHasher.get_SHA_512_SecurePassword(newPassword);
 		driver.findElement(By.id("password")).sendKeys(newPassword);
 		driver.findElement(By.id("confirmPassword")).sendKeys(newPassword);
@@ -94,6 +97,7 @@ public class PasswordResetFunctionalTest {
 	}
 	
 	@Test
+	//TEST ID = 5
 	public void shouldNotAcceptEmail() {
 		WebDriver driver = new ChromeDriver();
 		// invalid email check
@@ -103,10 +107,10 @@ public class PasswordResetFunctionalTest {
 		String html = driver.getPageSource();
 		assertEquals(true, html.contains("Something went wrong"));
 		driver.close();
-		
 	}
 	
 	@Test
+	//TEST ID = 6
 	public void shouldNotAcceptResetCode() {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/ForgotPassword");
@@ -128,6 +132,7 @@ public class PasswordResetFunctionalTest {
 	}
 	
 	@Test
+	//TEST ID = 7
 	public void shouldNotAcceptNewPassword() {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/ForgotPassword");
