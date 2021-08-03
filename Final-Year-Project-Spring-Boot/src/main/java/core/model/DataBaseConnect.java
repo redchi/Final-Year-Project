@@ -24,7 +24,7 @@ public class DataBaseConnect {
 	 * Instantiates a new data base connect.
 	 */
 	public DataBaseConnect() {
-		emf = Persistence.createEntityManagerFactory("p1");
+		emf = Persistence.createEntityManagerFactory("HostedDB");
 	}
 	
 	/**

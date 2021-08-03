@@ -24,7 +24,7 @@ import core.tradingsystem.tradingbot.TradingBotManager;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RegisterFunctionalTest {
+public class RegisterFunctionalTests {
 
 	@LocalServerPort
 	private int port;
@@ -39,7 +39,7 @@ public class RegisterFunctionalTest {
 	private CandleDataHandler dataHandler;
 	
 	
-	public RegisterFunctionalTest() {
+	public RegisterFunctionalTests() {
 		System.setProperty("webdriver.chrome.driver", "./src/test/java/seleniumDrivers/chromedriver.exe");
 	}
 	

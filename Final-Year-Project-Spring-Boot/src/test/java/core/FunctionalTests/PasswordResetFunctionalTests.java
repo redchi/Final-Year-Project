@@ -28,7 +28,7 @@ import core.tradingsystem.tradingbot.TradingBotManager;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PasswordResetFunctionalTest {
+public class PasswordResetFunctionalTests {
 
 	
 	@LocalServerPort
@@ -49,7 +49,7 @@ public class PasswordResetFunctionalTest {
 	@MockBean
 	private Mailer mailer;
 	
-	public PasswordResetFunctionalTest() {
+	public PasswordResetFunctionalTests() {
 		System.setProperty("webdriver.chrome.driver", "./src/test/java/seleniumDrivers/chromedriver.exe");
 	}
 	

@@ -102,7 +102,7 @@ public class CandleDataHandler {
 	/**
 	 * 
 	 * Main data update loop,every minute it calls live data api and adds a new minute candle
-	 * it is run on another thread, checks every 10 seconds if minute has passed
+	 * it is run on another thread and checks every 10 seconds if a minute has passed
 	 * 
 	 */
 	@Async
@@ -115,11 +115,14 @@ public class CandleDataHandler {
 				long wait = 1 * 60 * 1000;
 				// add a candle every minute, checks every 10 seconds
 				if(currentTime - lastCallTimeStamp>wait) {
-					Candle latestMin  = getLatestLiveCandle();
-					synchronized (liveCandlesEUR_USD) {
-						lastCallTimeStamp = new DateTime(DateTimeZone.forID("GMT")).getMillis();
-						liveCandlesEUR_USD.add(latestMin);
+					if(marketOpen() == true) {
+						Candle latestMin  = getLatestLiveCandle();
+						synchronized (liveCandlesEUR_USD) {
+							liveCandlesEUR_USD.add(latestMin);
+						}
 					}
+					lastCallTimeStamp = new DateTime(DateTimeZone.forID("GMT")).getMillis();
+
 				}
 				Thread.sleep(10000);
 			} catch (Exception e) {
@@ -159,8 +162,8 @@ public class CandleDataHandler {
 	    ObjectMapper mapper = new ObjectMapper();
 		JsonNode jsonObj = mapper.readTree(jsonResponseString);
 	    
-		float open = Float.parseFloat(jsonObj.get("close").toString());
-		float close = Float.parseFloat(jsonObj.get("open").toString());
+		float open = Float.parseFloat(jsonObj.get("open").toString());
+		float close = Float.parseFloat(jsonObj.get("close").toString());
 		float high = Float.parseFloat(jsonObj.get("high").toString());
 		float low = Float.parseFloat(jsonObj.get("low").toString());
 		String date = jsonObj.get("date_time").toString().replace("\"", "");
@@ -209,8 +212,8 @@ public class CandleDataHandler {
 	    
 		ArrayList<Candle> latestMinutes = new ArrayList<Candle>();
 		for(JsonNode candleJson:jsonObj.get("quotes")) {
-			float open = Float.parseFloat(candleJson.get("close").toString());
-			float close = Float.parseFloat(candleJson.get("open").toString());
+			float open = Float.parseFloat(candleJson.get("open").toString());
+			float close = Float.parseFloat(candleJson.get("close").toString());
 			float high = Float.parseFloat(candleJson.get("high").toString());
 			float low = Float.parseFloat(candleJson.get("low").toString());
 			String date = candleJson.get("date").toString().replace("\"", "");
@@ -262,9 +265,6 @@ public class CandleDataHandler {
 	        		float close = Float.parseFloat(elm[4]);	   
 	        		Candle minBar = new Candle(date,open,high,low,close);	         
 	        		historicalCandlesEUR_USD.add(minBar);
-	        		if(c%1000==0) {
-	        			System.out.println(c + "   "+date);
-	        		}
 	            }
 
 	        } catch (Exception e) {
@@ -279,6 +279,16 @@ public class CandleDataHandler {
 	                }
 	            }
 	         }
+	}
+	
+	private boolean marketOpen() {
+		DateTime gmt = new DateTime(DateTimeZone.forID("GMT"));
+		int day = gmt.getDayOfWeek();
+		int mins = gmt.getMinuteOfDay();
+		if(day == 6||(day == 5 && mins>=1195) || (day == 7 && mins<=1205)) {
+			return false;
+		}
+		return true;
 	}
 	
 }

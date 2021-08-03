@@ -214,7 +214,7 @@ display: none;
             <div class="col-md-12 col-lg-10">
                 <div class="mbr-section-btn align-center">
                 <a class="btn btn-primary display-4" id="pauseStartButton">Pause Trading</a>
-                <a class="btn btn-secondary display-4" href="${pageContext.request.contextPath}/deleteTradingBot?botID=${bot.ID}" >Delete bot</a></div>
+                <a class="btn btn-secondary display-4" id="deleteBotBtn" href="${pageContext.request.contextPath}/deleteTradingBot?botID=${bot.ID}" >Delete bot</a></div>
             </div>
         </div>
     </div>

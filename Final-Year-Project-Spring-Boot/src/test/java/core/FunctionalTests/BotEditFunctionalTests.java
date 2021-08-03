@@ -31,7 +31,7 @@ import core.tradingsystem.tradingbot.TradingBotManager;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class WebpageFunctionalTests {
+public class BotEditFunctionalTests {
 
 	
 	@LocalServerPort
@@ -53,9 +53,8 @@ public class WebpageFunctionalTests {
 
 	private TradingBot testbot;
 	
-	public WebpageFunctionalTests() {
+	public BotEditFunctionalTests() {
 		System.setProperty("webdriver.chrome.driver", "./src/test/java/seleniumDrivers/chromedriver.exe");
-
 	}
 	
 	@PostConstruct 
@@ -94,7 +93,8 @@ public class WebpageFunctionalTests {
 		Mockito.verify(infoController).getBotState(Mockito.eq(testbot.getID()), Mockito.any(), Mockito.any());
 		driver.close();
 	}
-	
+	@Test
+	//TEST ID = 21
 	public void viewHelpPages() throws Exception {
 		driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/login");
@@ -105,14 +105,27 @@ public class WebpageFunctionalTests {
 		driver.findElement(By.id(testbot.getID())).click();
 		String html = driver.getPageSource();
 		Thread.sleep(1500); // wait for webpage to load
-		assertEquals("Trading bot view", driver.getTitle());
-		assertEquals(true,html.contains(testbot.getName()));
-		assertEquals(true,html.contains(testbot.getCurrency()+""));
-		assertEquals(true,html.contains("Trading history"));
-		assertEquals(true,html.contains("Strategy configuration"));
-		// verify webpage requested info on test bot
-		Mockito.verify(infoController).getBotState(Mockito.eq(testbot.getID()), Mockito.any(), Mockito.any());
+		assertEquals(0, testbot.getInteruptType());
+		driver.findElement(By.id("pauseStartButton")).click();
+		Thread.sleep(500);
+		assertEquals(1, testbot.getInteruptType());
+		driver.findElement(By.id("pauseStartButton")).click();
+		Thread.sleep(500);
+		assertEquals(0, testbot.getInteruptType());
+		driver.findElement(By.id("deleteBotBtn")).click();
+		//check controller called right method 
+		Mockito.verify(botManager).deleteTradingBot(testbot.getID());
+		// check trading bot is acually deleted
+		assertEquals(null,botManager.getBot(testbot.getID()));
 		driver.close();
 	}
+	
+	@Test
+	//TEST ID = 22
+	public void testEurUsdForexData() {
+		dataHandler.getCandleData(CurrencyPair.EUR_USD, 100, true, 0);
+		dataHandler.getCandleData(CurrencyPair.EUR_USD, 100, false, 0);
+	}
+	
 	
 }

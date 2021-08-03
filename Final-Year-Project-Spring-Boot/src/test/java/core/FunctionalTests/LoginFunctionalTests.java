@@ -23,7 +23,7 @@ import core.tradingsystem.tradingbot.TradingBotManager;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class LoginFunctionalTest {
+public class LoginFunctionalTests {
 
 	@LocalServerPort
 	private int port;
@@ -37,7 +37,7 @@ public class LoginFunctionalTest {
 	@MockBean
 	private CandleDataHandler dataHandler;
 	
-	public LoginFunctionalTest() {
+	public LoginFunctionalTests() {
 		System.setProperty("webdriver.chrome.driver", "./src/test/java/seleniumDrivers/chromedriver.exe");
 
 	}

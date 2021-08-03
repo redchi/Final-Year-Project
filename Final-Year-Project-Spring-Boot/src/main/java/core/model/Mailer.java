@@ -39,7 +39,7 @@ public class Mailer {
 			
 			Session session = Session.getInstance(prop, new Authenticator() {
 			    protected PasswordAuthentication getPasswordAuthentication() {
-			        return new PasswordAuthentication("hacker1289@gmail.com", "Popstar4");
+			        return new PasswordAuthentication("visiontradingaston@gmail.com", "Likliklik6");
 			    }
 			});
 			
