@@ -75,21 +75,6 @@ public class StochasticAndEmaTest {
 	}
 	
 	@Test
-	public void shouldShort() {
-		CandleDataHandler cdh = Mockito.mock(CandleDataHandler.class);
-		Mockito.when(cdh.getCandleData(CurrencyPair.EUR_USD, 20, false, 0)).thenReturn(
-				downtrend
-				);
-		Mockito.when(cdh.getCandleData(CurrencyPair.EUR_USD, 6, false, 0)).thenReturn(
-				downtrend.subList(downtrend.size()-7, downtrend.size()-1)
-				);
-		
-		Strategy strat = new StochasticAndEma(20, 3);
-		Order order = strat.getResponce(null, cdh, false, 0, CurrencyPair.EUR_USD, 1000);
-		assertEquals(PositionType.SHORT, order.getOrderType());
-	}
-	
-	@Test
 	public void shouldExitFromBuy() {
 		CandleDataHandler cdh = Mockito.mock(CandleDataHandler.class);
 		Mockito.when(cdh.getCandleData(CurrencyPair.EUR_USD, 20, false, 0)).thenReturn(

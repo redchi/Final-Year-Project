@@ -115,10 +115,10 @@
                                 Edit strategy Parameters</p>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="name">
-                            <input type="number" name="bollinger" placeholder="Bollinger period" data-form-field="name" class="form-control" value="" id="bollinger" required>
+                            <input type="number" name="bollinger" placeholder="Bollinger time period (5 - 200 minutes)" data-form-field="name" class="form-control" value="" id="bollinger" required>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="number" name="stochastic" placeholder="Stochastic period " data-form-field="email" class="form-control" value="" id="stochastic" required >
+                            <input type="number" name="stochastic" placeholder="Stochastic time period (5 - 200 minutes) " data-form-field="email" class="form-control" value="" id="stochastic" required >
                         </div>
                         <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4" id="submit">Submit</button></div>
                         <div class="col-12 col-md-auto mbr-section-btn"><a href="${pageContext.request.contextPath}/StochasticAndBollingerGuide" class="btn btn-info display-4">Learn more</a></div>

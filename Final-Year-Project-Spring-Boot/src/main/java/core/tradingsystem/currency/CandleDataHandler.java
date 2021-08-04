@@ -109,6 +109,7 @@ public class CandleDataHandler {
 	public void forexUpdateLoop() {
 		boolean stop = false;
 		long  lastCallTimeStamp = 0;
+		System.out.println("#12");
 		while(stop == false) {
 			try {
 				long currentTime = new DateTime(DateTimeZone.forID("GMT")).getMillis();

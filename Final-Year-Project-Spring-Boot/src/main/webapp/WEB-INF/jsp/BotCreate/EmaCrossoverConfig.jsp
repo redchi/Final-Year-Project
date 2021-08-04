@@ -114,13 +114,13 @@
                                 Edit strategy Parameters</p>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="name">
-                            <input type="number" name="EmaL" placeholder="Long term EMA value" data-form-field="name" class="form-control" value="" id="emaL" required>
+                            <input type="number" name="EmaL" placeholder="Long term avearge time period (5 - 200 minutes)" data-form-field="name" class="form-control" value="" id="emaL" required>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="number" name="EmaS" placeholder="Short term EMA value" data-form-field="email" class="form-control" value="" id="emaS" required >
+                            <input type="number" name="EmaS" placeholder="Short term term avearge time period (5 - 150 minutes)" data-form-field="email" class="form-control" value="" id="emaS" required >
                         </div>
                          <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="number" name="buffer" placeholder="Buffer" data-form-field="email" class="form-control" value="" id="buffer"  required>
+                            <input type="number" name="buffer" placeholder="price buffer (0 - 40 pips)" data-form-field="email" class="form-control" value="" id="buffer"  required>
                         </div>
                         
                         <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4" id="submit">Submit</button></div>

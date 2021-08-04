@@ -119,6 +119,7 @@
                         </div>
                         <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4" id="loginSubmit">Login</button></div><br><p> </p>
 						<div></div>
+						<br>
 						<div class="mbr-section-btn align-center" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove"><a class="btn btn-secondary" href="${pageContext.request.contextPath}/ForgotPassword" data-app-placeholder="Type Text" id="forgotPassBtn">Forgot Password</a></div>
 						                  
  						</div>

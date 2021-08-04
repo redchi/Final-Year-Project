@@ -110,10 +110,10 @@
                                 Edit strategy Parameters</p>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="name">
-                            <input type="number" name="ema" placeholder="Ema period" data-form-field="name" class="form-control" value="" id="ema" required>
+                            <input type="number" name="ema" placeholder="moving average time period (5 - 200 minutes)" data-form-field="name" class="form-control" value="" id="ema" required>
                         </div>
                         <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="number" name="stochastic" placeholder="stochastic period " data-form-field="email" class="form-control" value="" id="stochastic" required >
+                            <input type="number" name="stochastic" placeholder="stochastic time period (5 - 200 minutes)" data-form-field="email" class="form-control" value="" id="stochastic" required >
                         </div>
                         
                         <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4" id="submit">Submit</button></div>

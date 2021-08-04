@@ -152,7 +152,7 @@ public class BotCreateController {
 			BotCreateForm botDetails = (BotCreateForm) session.getAttribute("BotCreateForm");
 			String username = (String) session.getAttribute("username");
 			List<String> errors = botDetails.checkForErrors();
-			if(EmaS<4 ||EmaS>150) {
+			if(EmaS<5 ||EmaS>150) {
 				errors.add("short term Ema period has to be between 5 and 150");
 			}
 			if(EmaS>=EmaL) {
@@ -215,10 +215,10 @@ public class BotCreateController {
 			BotCreateForm botDetails = (BotCreateForm) session.getAttribute("BotCreateForm");
 			String username = (String) session.getAttribute("username");
 			List<String> errors = botDetails.checkForErrors();
-			if(ema<4 ||ema>200) {
+			if(ema<5 ||ema>200) {
 				errors.add("Ema period has to be between 5 and 200");
 			}
-			if(ema<4 ||ema>200) {
+			if(ema<5 ||ema>200) {
 				errors.add("stochastic period has to be between 5 and 200");
 			}
 			// will catch all errors
@@ -295,10 +295,10 @@ public class BotCreateController {
 			BotCreateForm botDetails = (BotCreateForm) session.getAttribute("BotCreateForm");
 			String username = (String) session.getAttribute("username");
 			List<String> errors = botDetails.checkForErrors();
-			if(bollinger<4 ||bollinger>200) {
+			if(bollinger<5 ||bollinger>200) {
 				errors.add("bollinger period has to be between 5 and 200");
 			}
-			if(stochastic<4 ||stochastic>200) {
+			if(stochastic<5 ||stochastic>200) {
 				errors.add("stochastic period has to be between 5 and 200");
 			}
 			// will catch all errors

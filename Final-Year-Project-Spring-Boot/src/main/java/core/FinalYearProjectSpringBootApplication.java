@@ -32,15 +32,15 @@ public class FinalYearProjectSpringBootApplication implements InitializingBean {
 	
 	
 	/**
-	 * After properties set - initialise botmanager and data handler
+	 * After properties set - initialise trading bot manager and data handler
 	 *
 	 * @throws Exception the exception
 	 */
 	public void afterPropertiesSet() throws Exception {
 		botManager.mainTradingLoop();
 		dataHandler.loadDataFromCSV();
-	//	dataHandler.loadHistoricalDataFromAPI();
-	//	dataHandler.forexUpdateLoop();
+		dataHandler.loadHistoricalDataFromAPI();
+		dataHandler.forexUpdateLoop();
 		loadTests();
 	}
 	
