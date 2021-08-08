@@ -115,11 +115,17 @@ public class BotEditController {
 				DateTime gmt = new DateTime(DateTimeZone.forID("GMT"));
 				int day = gmt.getDayOfWeek();
 				int mins = gmt.getMinuteOfDay();
-				if((day == 6 || day == 5 && mins>=1195 ||day == 7 && mins<=1205) == false) {
+				if(((day == 1 && mins<365) || (day == 5 && mins>=1195) || day == 6 || day == 7 )== false) {
 					bot.setInteruptType(0);
 					botManager.switchTradingBotToActiveList(botID);
 				}
 			}
+			else {
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			}
+		}
+		else {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		}
 	}
 	

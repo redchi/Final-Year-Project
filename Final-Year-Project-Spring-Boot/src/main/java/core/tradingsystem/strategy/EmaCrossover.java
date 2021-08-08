@@ -45,7 +45,7 @@ public class EmaCrossover extends Strategy {
 	 * @param pipsBuffer the pips buffer
 	 */
 	public EmaCrossover(int EmaS,int EmaL,int pipsBuffer) {
-		super("Ema CrossOver");
+		super("Ema Crossover");
 		this.bufferIn = pipsBuffer;
 		this.emaStPeriod = EmaS;
 		this.emaLtPeriod = EmaL;
@@ -58,8 +58,6 @@ public class EmaCrossover extends Strategy {
 	@Override
 	public Order getResponce(Position currentPosition,CandleDataHandler CDH,
 			boolean usesLiveData,int datePointer,CurrencyPair currency,int stopLoss) {
-		
-	
 		int dataAmt = emaLtPeriod*2;
 		List<Candle> candles = CDH.getCandleData(currency, dataAmt, usesLiveData, datePointer);
 		Candle latestMin = candles.get(candles.size()-1);

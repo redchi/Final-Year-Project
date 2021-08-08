@@ -45,7 +45,7 @@ public class WebpagesFunctionalTests {
 	
 	
 	@Test
-	//TEST ID = 25
+	//TEST ID = 23
 	public void testwebpages() {
 		driver = new ChromeDriver();
 		driver.get("http://localhost:"+port+"/home");

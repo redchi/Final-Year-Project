@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 
 import core.tradingsystem.currency.CandleDataHandler;
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class TradingBotManager- manages all trading bots on server
  */
@@ -181,8 +179,7 @@ public class TradingBotManager{
 					}
 				}
 				catch (Exception e) {
-					bot.setInteruptType(-1);
-			// interrupt type of -1 means a server error
+					bot.setInteruptType(-1);// interrupt type of -1 means a server error
 					botRemoval.add(bot);}
 			}
 			for(TradingBot bot:botRemoval) {

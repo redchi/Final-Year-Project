@@ -69,7 +69,7 @@ public class TradingBot {
 		this.simulatedDataPointer = 0;
 		this.stoploss = stoploss;
 		this.maxTrades = maxTrades;
-		prevCandles = Collections.synchronizedList(new ArrayList<Candle>()); // syned cuz it get might be read and moded at the same time
+		prevCandles = Collections.synchronizedList(new ArrayList<Candle>()); 
 		broker = new Broker();
 		interuptType = 0;
 	}
@@ -126,13 +126,7 @@ public class TradingBot {
 			DateTime gmt = new DateTime(DateTimeZone.forID("GMT"));
 			int day = gmt.getDayOfWeek();
 			int mins = gmt.getMinuteOfDay();
-			if(day == 6) { // day is sat - market closed
-				interuptType = 4;
-			}
-			else if( day == 5 && mins>=1195) { // day is friday and time is above 19:55
-				interuptType = 4;
-			}
-			else if(day == 7 && mins<=1205) { // day is sunday and time is below 20:05
+			if((day == 1 && mins<365) || (day == 5 && mins>=1195) || day == 6 || day == 7 ) {
 				interuptType = 4;
 			}
 		}

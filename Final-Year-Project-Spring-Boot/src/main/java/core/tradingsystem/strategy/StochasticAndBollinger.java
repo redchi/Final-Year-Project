@@ -65,11 +65,11 @@ public class StochasticAndBollinger extends Strategy {
 
 		if(currentPosition == null) {
 			if(buyOpen() == true) {
-				String reason = "unkown ";
+				String reason = "price is at lower bollinger band and stochastic value is below 30";
 				return new Order(PositionType.BUY,currency,latestpriceMin,reason);
 			}
 			else if(shortOpen() == true) {
-				String reason = "unkown";
+				String reason = "price is at upper bollinger band and stochastic value is above 70";
 				return new Order(PositionType.SHORT,currency,latestpriceMin,reason);
 			}
 		}
@@ -79,13 +79,13 @@ public class StochasticAndBollinger extends Strategy {
 		}	
 		else if(currentPosition.getType() == PositionType.BUY) {// current position is buy
 			if(buyClose() == true) {
-				String reason = "unkown";
+				String reason = "price is at upper bollinger band and stochastic value is above 80";
 				return new Order(PositionType.CLOSE,currency,latestpriceMin,reason);
 			}
 		}
 		else if(currentPosition.getType() == PositionType.SHORT) {//current position is sell
 			if(shortClose() == true) {
-				String reason = "unkown";
+				String reason = "price is at lower bollinger band and stochastic value is below 20";
 				return new Order(PositionType.CLOSE,currency,latestpriceMin,reason);
 			}
 		}

@@ -3,6 +3,10 @@ package core;
 import java.util.Random;
 import java.util.UUID;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -39,8 +43,18 @@ public class FinalYearProjectSpringBootApplication implements InitializingBean {
 	public void afterPropertiesSet() throws Exception {
 		botManager.mainTradingLoop();
 		dataHandler.loadDataFromCSV();
-		dataHandler.loadHistoricalDataFromAPI();
-		dataHandler.forexUpdateLoop();
+		DateTime gmt = new DateTime(DateTimeZone.forID("GMT"));
+		int day = gmt.getDayOfWeek();
+		int mins = gmt.getMinuteOfDay();
+		if((day == 1 && mins<365) || (day == 5 && mins>=1195) || day == 6 || day == 7 ) {
+			System.out.println("################### IMPORTANT INFO!!!!");
+			System.out.println("################### FOREX MARKET IS CLOSED LIVE DATA FUNCTIONALITY IS DISABLED");
+			System.out.println("################### LAUNCH SERVER FROM 06:05 MONDAY TO 19:55 FRIDAY (GMT)");
+		}
+		else {
+			dataHandler.loadHistoricalDataFromAPI();
+			dataHandler.forexUpdateLoop();
+		}
 		loadTests();
 	}
 	

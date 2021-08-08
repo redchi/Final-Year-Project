@@ -6,4 +6,4 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @Configuration
 @EnableAsync
 public class asyncConfig {}
-// enables multithreading in spring
+// enables multithreading by spring

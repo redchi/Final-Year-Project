@@ -61,11 +61,11 @@ public class StochasticAndEma extends Strategy {
 				
 		if(currentPosition == null) {
 			if(buyOpen() == true) {
-				String reason = "price above ema and stochatic value is under 30";
+				String reason = "price above moving average and stochatic value is under 30";
 				return new Order(PositionType.BUY,currency,latestpriceMin,reason);
 			}
 			else if(shortOpen() == true) {
-				String reason = "price below ema and stochatic value is over 70";
+				String reason = "price below moving average and stochatic value is over 70";
 				return new Order(PositionType.SHORT,currency,latestpriceMin,reason);
 			}
 		}
@@ -74,16 +74,25 @@ public class StochasticAndEma extends Strategy {
 			return new Order(PositionType.CLOSE,currency,latestpriceMin,reason);
 		}	
 		else if(currentPosition.getType() == PositionType.BUY) {// current position is buy
-			if(buyClose() == true) {
-				String reason = "unkown";
+			if(latestPrice<latestEmaValue) {
+				String reason = "price is below moving average";
+				return new Order(PositionType.CLOSE,currency,latestpriceMin,reason);
+			}
+			else if(latestStochasticValue>80) {
+				String reason = "stochastic value is over 80";
 				return new Order(PositionType.CLOSE,currency,latestpriceMin,reason);
 			}
 		}
 		else if(currentPosition.getType() == PositionType.SHORT) {//current position is sell
-			if(shortClose() == true) {
-				String reason = "unkown";
+			if(latestPrice>latestEmaValue) {
+				String reason = "price is above moving average";
 				return new Order(PositionType.CLOSE,currency,latestpriceMin,reason);
 			}
+			else if(latestStochasticValue<20) {
+				String reason = "stochastic value is under over 20";
+				return new Order(PositionType.CLOSE,currency,latestpriceMin,reason);
+			}
+
 		}
 		return null;
 	}
@@ -112,29 +121,7 @@ public class StochasticAndEma extends Strategy {
 		return false;
 	}
 	
-	/**
-	 * Short close.
-	 *
-	 * @return true, if successful
-	 */
-	private boolean shortClose() {
-		if(latestPrice>latestEmaValue || latestStochasticValue<20) {
-			return true;
-		}
-		return false;
-	}
-	
-	/**
-	 * Buy close.
-	 *
-	 * @return true, if successful
-	 */
-	private boolean buyClose() {
-		if(latestPrice<latestEmaValue || latestStochasticValue>80) {
-			return true;
-		}
-		return false;
-	}
+
 	
 	
 	/**

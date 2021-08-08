@@ -184,47 +184,50 @@ public class CandleDataHandler {
 	 * @throws Exception the exception
 	 */
 	public void loadHistoricalDataFromAPI() throws Exception{
-		DateTime timeNow = new DateTime(DateTimeZone.forID("GMT"));
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("y-MM-dd-HH:mm");
-		String endDate = fmt.print(timeNow); 
-		String startDate = fmt.print(timeNow.minusHours(7)); // aprox 420 price points
-		String apiKey ="HpF9738nBRzN_MBTPjEv";
-		String currency = "EURUSD";
-		
-		String uri = "https://marketdata.tradermade.com/api/v1/timeseries"
-				+ "?currency="+currency
-				+ "&api_key="+apiKey
-				+ "&start_date="+startDate
-				+ "&end_date="+endDate
-				+ "&interval=minute"
-				+ "&format=records";
-		
-	    HttpClient client = HttpClient.newHttpClient();
-	    HttpRequest request = HttpRequest.newBuilder()
-	          .uri(URI.create(uri))
-	          .build();
+		if(marketOpen() == true) {
+			DateTime timeNow = new DateTime(DateTimeZone.forID("GMT"));
+			DateTimeFormatter fmt = DateTimeFormat.forPattern("y-MM-dd-HH:mm");
+			String endDate = fmt.print(timeNow); 
+			String startDate = fmt.print(timeNow.minusHours(7)); // aprox 240 price points
+			String apiKey ="HpF9738nBRzN_MBTPjEv";
+			String currency = "EURUSD";
+			
+			String uri = "https://marketdata.tradermade.com/api/v1/timeseries"
+					+ "?currency="+currency
+					+ "&api_key="+apiKey
+					+ "&start_date="+startDate
+					+ "&end_date="+endDate
+					+ "&interval=minute"
+					+ "&format=records";
+			
+		    HttpClient client = HttpClient.newHttpClient();
+		    HttpRequest request = HttpRequest.newBuilder()
+		          .uri(URI.create(uri))
+		          .build();
 
-	    HttpResponse<String> response =
-	          client.send(request, BodyHandlers.ofString());
-	    
-	    String jsonResponseString = response.body();
-	    ObjectMapper mapper = new ObjectMapper();
-		JsonNode jsonObj = mapper.readTree(jsonResponseString);
-	    
-		ArrayList<Candle> latestMinutes = new ArrayList<Candle>();
-		for(JsonNode candleJson:jsonObj.get("quotes")) {
-			float open = Float.parseFloat(candleJson.get("open").toString());
-			float close = Float.parseFloat(candleJson.get("close").toString());
-			float high = Float.parseFloat(candleJson.get("high").toString());
-			float low = Float.parseFloat(candleJson.get("low").toString());
-			String date = candleJson.get("date").toString().replace("\"", "");
-			DateTimeFormatter fmt2 = DateTimeFormat.forPattern("y-MM-dd HH:mm:ss");
-			DateTimeFormatter fmt3 = DateTimeFormat.forPattern("y-MM-dd HH:mm");
-			String finalDate = fmt3.print(fmt2.parseDateTime(date));
-			Candle min = new Candle(finalDate, open, high, low, close);
-			latestMinutes.add(min);
+		    HttpResponse<String> response =
+		          client.send(request, BodyHandlers.ofString());
+		    
+		    String jsonResponseString = response.body();
+		    ObjectMapper mapper = new ObjectMapper();
+			JsonNode jsonObj = mapper.readTree(jsonResponseString);
+		    
+			ArrayList<Candle> latestMinutes = new ArrayList<Candle>();
+			for(JsonNode candleJson:jsonObj.get("quotes")) {
+				float open = Float.parseFloat(candleJson.get("open").toString());
+				float close = Float.parseFloat(candleJson.get("close").toString());
+				float high = Float.parseFloat(candleJson.get("high").toString());
+				float low = Float.parseFloat(candleJson.get("low").toString());
+				String date = candleJson.get("date").toString().replace("\"", "");
+				DateTimeFormatter fmt2 = DateTimeFormat.forPattern("y-MM-dd HH:mm:ss");
+				DateTimeFormatter fmt3 = DateTimeFormat.forPattern("y-MM-dd HH:mm");
+				String finalDate = fmt3.print(fmt2.parseDateTime(date));
+				Candle min = new Candle(finalDate, open, high, low, close);
+				latestMinutes.add(min);
+			}
+			liveCandlesEUR_USD = latestMinutes;
 		}
-		liveCandlesEUR_USD = latestMinutes;
+		
 	}
 	
 	
@@ -286,7 +289,7 @@ public class CandleDataHandler {
 		DateTime gmt = new DateTime(DateTimeZone.forID("GMT"));
 		int day = gmt.getDayOfWeek();
 		int mins = gmt.getMinuteOfDay();
-		if(day == 6||(day == 5 && mins>=1195) || (day == 7 && mins<=1205)) {
+		if((day == 1 && mins<365) || (day == 5 && mins>=1195) || day == 6 || day == 7 ) {
 			return false;
 		}
 		return true;
