@@ -333,8 +333,8 @@ function clickCheckMarketTimes(){
 	  var xhttp;
 	  xhttp=new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
-	    if (this.status == 400) {
-	  		alert("forex market is still closed");
+	    if (this.readyState == 4 && this.status == 400) {
+	  		window.alert("forex market is still closed");
 	    }
 	  };
 	  xhttp.open("GET", url, true);

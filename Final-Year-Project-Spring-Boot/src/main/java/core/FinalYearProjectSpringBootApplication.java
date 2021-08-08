@@ -65,7 +65,7 @@ public class FinalYearProjectSpringBootApplication implements InitializingBean {
 		String username = "test1"; // a new ra
 		for(int i = 0 ; i<3; i ++) {
 			String ID = UUID.randomUUID().toString().replace("-", "");
-			String name = getRandomString(7);		
+			String name = ID.substring(7);		
 			int EmaS = 5 + (int)(Math.random() * 20);
 			int EmaL = EmaS + (int)(Math.random() * (EmaS + 40));
 			int buffer = 3 + (int)(Math.random() * 10);
@@ -83,22 +83,5 @@ public class FinalYearProjectSpringBootApplication implements InitializingBean {
 		}
 	}
 	
-	/**
-	 * Gets the random string.
-	 *
-	 * @param lenght the lenght
-	 * @return the random string
-	 */
-	protected String getRandomString(int lenght) {
-       String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-       StringBuilder salt = new StringBuilder();
-       Random rnd = new Random();
-       while (salt.length() < lenght) { // length of the random string.
-           int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-           salt.append(SALTCHARS.charAt(index));
-       }
-       String saltStr = salt.toString();
-       return saltStr;
-   }
 	
 }

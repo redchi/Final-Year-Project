@@ -103,7 +103,7 @@
                     <div class="item-content">
                         <h5 class="item-title mbr-fonts-style display-5"><strong>Stochastic and Moving Average Strategy</strong></h5>
                         <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">  Trend following and predictive</h6>
-                        <p class="mbr-text mbr-fonts-style mt-3 display-7">You don't have to code to create your own site. Select one of available themes in the Mobirise Site Maker.</p>
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">In this trading strategy you will follow short term trends but predict when the trend will start or end.</p>
                     </div>
                     <div class="mbr-section-btn item-footer mt-2"><a href="${pageContext.request.contextPath}/createBot/selectStrategy/StochasticAndEma" class="btn item-btn btn-black display-7" id="stochasticAndEmaClick">Select</a></div>
                 </div>
