@@ -15,7 +15,6 @@
     
     
        <persistence-unit name="HostedDB">
-
         <properties>
            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://updz6ch2glgrw7nb:gdeptgrpqD8rsVOv89bD@borg9iwobfqvow4694tp-mysql.services.clever-cloud.com:3306/borg9iwobfqvow4694tp"/>
