@@ -286,7 +286,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="title col-md-12 col-lg-10">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2"><strong>How to evalute your trading bots?</strong></h3>
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2"><strong>How to evaluate your trading bots?</strong></h3>
                 <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7"><strong>Profit/Loss Ratio
 </strong><div>Tells you how much profit you are making verses your loss, it should be above 1 (breakeven) preferably above 1.5 if you want it to be profitable.</div><br><div><strong>Sucess Rate</strong></div><div>Tells you how often your trading bot wins trades, just because it has a high success rate doesn’t mean it will make you a lot of money. It may win many times but may not win big! Your success rate should be above 50%.</div></h4>
                 

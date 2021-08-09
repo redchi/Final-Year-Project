@@ -155,14 +155,17 @@ public class BotCreateController {
 			if(EmaS<5 ||EmaS>150) {
 				errors.add("short term Ema period has to be between 5 and 150");
 			}
+			if(EmaL<5 ||EmaS>200) {
+				errors.add("Long term Ema period has to be between 5 and 200");
+			}
 			if(EmaS>=EmaL) {
 				errors.add("long term Ema cannot be less than or equal to short term Ema");
 			}
 			if(EmaL>200) {
 				errors.add("long term ema period cannot be more than 200");
 			}
-			if (buffer<0) {
-				errors.add("buffer cannot be less than 0");
+			if (buffer<0 || buffer>40) {
+				errors.add("buffer needs to be between 0 and 40");
 			}
 			// will catch all errors
 			if(errors.size() != 0) {
@@ -218,7 +221,7 @@ public class BotCreateController {
 			if(ema<5 ||ema>200) {
 				errors.add("Ema period has to be between 5 and 200");
 			}
-			if(ema<5 ||ema>200) {
+			if(stochastic<5 ||stochastic>200) {
 				errors.add("stochastic period has to be between 5 and 200");
 			}
 			// will catch all errors
