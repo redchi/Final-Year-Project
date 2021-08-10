@@ -71,17 +71,13 @@ public class EmaCrossover extends Strategy {
 		
 		if(currentPosition == null) { // NO OPEN POSITIONS
 			if(BuyOpen() == true) {
-				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
-				+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
-				+"\n Short term average > Long term average"
+				String reason = "short term price aveage is greater than long term average"
 				;
 				
 				return new Order(PositionType.BUY,currency,latestMin,reason);
 			}
 			else if(ShortOpen() == true) {
-				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
-						+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
-						+"\n Short term average < Long term average"
+				String reason = "short term price aveage is less than long term average"
 						;
 				
 				return new Order(PositionType.SHORT,currency,latestMin,reason);
@@ -97,9 +93,7 @@ public class EmaCrossover extends Strategy {
 			
 			if(BuyClose() == true) {
 				// new order to close
-				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
-				+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
-				+"\n Short term average < Long term average"
+				String reason = "short term price aveage is less than long term average"
 				;
 				return new Order(PositionType.CLOSE,currency,latestMin,reason);
 			}
@@ -107,9 +101,7 @@ public class EmaCrossover extends Strategy {
 		
 		else if(currentPosition.getType() == PositionType.SHORT) {//currently in short position
 			if(ShortClose() == true) {
-				String reason = "Short term average is at $"+String.format("%.04f", latestEmaSValue)
-				+ "\nlong term average is at $"+String.format("%.04f", latestEmaLValue)
-				+"\n Short term average > Long term average"
+				String reason = "short term price aveage is greater than long term average"
 				;
 				return new Order(PositionType.CLOSE,currency,latestMin,reason);
 			}
